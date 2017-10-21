@@ -3,7 +3,7 @@ var express = require('express')
 var router = express.Router()
 
 router.get('/list', function (req, res) {
-  models.Category.findAll({include: [models.Products]})
+  models.Products.findAll()
     .then(function (data) {
       res.send(data)
     })
@@ -11,7 +11,7 @@ router.get('/list', function (req, res) {
 
 router.get('/list/:attributes', function (req, res) {
   let attributes = req.params.attributes;
-  models.Category.findAll({
+  models.Products.findAll({
     attributes: attributes.split('&')
   })
     .then(function (data) {
@@ -20,7 +20,7 @@ router.get('/list/:attributes', function (req, res) {
 })
 
 router.get('/:category_id', function (req, res) {
-  models.Category.findAll({
+  models.Products.findAll({
     include: [models.Products],
     where: {
       id: req.params.category_id
@@ -32,11 +32,11 @@ router.get('/:category_id', function (req, res) {
 })
 
 router.post('/create', function (req, res) {
-  models.Category.create({
+  models.Products.create({
     name: req.param('name'),
-    level: req.param('level'),
-    image: req.param('image'),
-    parent: req.param('parent')
+    price: req.param('price'),
+    CapacityId: req.param('CapacityId'),
+    CategoryId: req.param('CategoryId')
   }).then(function (data) {
     res.send(data)
   })
@@ -45,10 +45,10 @@ router.post('/create', function (req, res) {
     })
 })
 
-router.delete('/:category_id/delete', function (req, res) {
-  models.Category.destroy({
+router.delete('/:product_id/delete', function (req, res) {
+  models.Products.destroy({
     where: {
-      id: req.params.category_id
+      id: req.params.product_id
     }
   }).then(function () {
     // res.redirect('/')
