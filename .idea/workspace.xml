@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34ed6194-bd23-4307-b828-6b8211773ea0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/equirol_dev-journal" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/migrations/20141003120222-create-user.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/equirol_dev" afterPath="$PROJECT_DIR$/backend/equirol_dev" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app.js" afterPath="$PROJECT_DIR$/backend/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/bin/www" afterPath="$PROJECT_DIR$/backend/bin/www" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/models/category.js" afterPath="$PROJECT_DIR$/backend/models/category.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/models/products.js" afterPath="$PROJECT_DIR$/backend/models/products.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,10 +40,10 @@
             <state relative-caret-position="126">
               <caret line="7" column="52" lean-forward="true" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
               <folding>
-                <marker date="1508676884252" expanded="true" signature="52602:52644" ph="..." />
-                <marker date="1508676884252" expanded="true" signature="52602:52662" ph="..." />
-                <marker date="1508676884252" expanded="true" signature="52602:52675" ph="..." />
-                <marker date="1508676884252" expanded="true" signature="52602:52690" ph="..." />
+                <marker date="1508676894504" expanded="true" signature="52572:52614" ph="..." />
+                <marker date="1508676894504" expanded="true" signature="52572:52632" ph="..." />
+                <marker date="1508676894504" expanded="true" signature="52572:52645" ph="..." />
+                <marker date="1508676894504" expanded="true" signature="52572:52660" ph="..." />
               </folding>
             </state>
           </provider>
@@ -70,8 +63,11 @@
         <entry file="file://$PROJECT_DIR$/backend/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
-              <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-              <folding />
+              <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+              <folding>
+                <marker date="1508677023970" expanded="true" signature="931:1199" ph="{...}" />
+                <marker date="1508677023970" expanded="true" signature="1203:1286" ph="//..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -376,11 +372,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508608111538</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="All DB structure with relations">
+      <created>1508676961062</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1508676961063</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34184000" />
+    <option name="totallyTimeSpent" value="34317000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="99" y="-4" width="1545" height="912" extended-state="6" />
@@ -453,7 +456,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="cat crud + product crud beggining" />
-    <option name="LAST_COMMIT_MESSAGE" value="cat crud + product crud beggining" />
+    <MESSAGE value="All DB structure with relations" />
+    <option name="LAST_COMMIT_MESSAGE" value="All DB structure with relations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -775,8 +779,11 @@
     <entry file="file://$PROJECT_DIR$/backend/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding />
+          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+          <folding>
+            <marker date="1508677023970" expanded="true" signature="931:1199" ph="{...}" />
+            <marker date="1508677023970" expanded="true" signature="1203:1286" ph="//..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -793,10 +800,10 @@
         <state relative-caret-position="126">
           <caret line="7" column="52" lean-forward="true" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
           <folding>
-            <marker date="1508676884252" expanded="true" signature="52602:52644" ph="..." />
-            <marker date="1508676884252" expanded="true" signature="52602:52662" ph="..." />
-            <marker date="1508676884252" expanded="true" signature="52602:52675" ph="..." />
-            <marker date="1508676884252" expanded="true" signature="52602:52690" ph="..." />
+            <marker date="1508676894504" expanded="true" signature="52572:52614" ph="..." />
+            <marker date="1508676894504" expanded="true" signature="52572:52632" ph="..." />
+            <marker date="1508676894504" expanded="true" signature="52572:52645" ph="..." />
+            <marker date="1508676894504" expanded="true" signature="52572:52660" ph="..." />
           </folding>
         </state>
       </provider>
