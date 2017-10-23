@@ -3,9 +3,7 @@ var express = require('express')
 var router = express.Router()
 
 router.get('/list', function (req, res) {
-  models.Products.findAll({
-    include: [models.Capacity, models.Category]
-  })
+  models.Capacity.findAll({group: 'type, value'})
     .then(function (data) {
       res.send(data)
     })
@@ -13,7 +11,7 @@ router.get('/list', function (req, res) {
 
 router.get('/list/:attributes', function (req, res) {
   let attributes = req.params.attributes;
-  models.Products.findAll({
+  models.Capacity.findAll({
     attributes: attributes.split('&')
   })
     .then(function (data) {
@@ -22,8 +20,7 @@ router.get('/list/:attributes', function (req, res) {
 })
 
 router.get('/:category_id', function (req, res) {
-  models.Products.findAll({
-    include: [models.Products],
+  models.Capacity.findAll({
     where: {
       id: req.params.category_id
     }
@@ -34,11 +31,9 @@ router.get('/:category_id', function (req, res) {
 })
 
 router.post('/create', function (req, res) {
-  models.Products.create({
-    name: req.param('name'),
-    price: req.param('price'),
-    CapacityId: req.param('CapacityId'),
-    CategoryId: req.param('CategoryId')
+  models.Capacity.create({
+    value: req.param('value'),
+    type: req.param('type')
   }).then(function (data) {
     res.send(data)
   })
@@ -47,10 +42,10 @@ router.post('/create', function (req, res) {
     })
 })
 
-router.delete('/:product_id/delete', function (req, res) {
-  models.Products.destroy({
+router.delete('/:capacity_id/delete', function (req, res) {
+  models.Capacity.destroy({
     where: {
-      id: req.params.product_id
+      id: req.params.capacity_id
     }
   }).then(function () {
     // res.redirect('/')

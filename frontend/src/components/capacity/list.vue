@@ -1,10 +1,10 @@
 <template>
-    <div id="all-products">
+    <div id="all-capacities">
         <el-row>
-            <el-col :span="10" :offset="6"><h1>Tous les produits</h1>
+            <el-col :span="10" :offset="6"><h1>Toutes les capacités</h1>
 
                 <p>
-                    <router-link to="/product/create" class="btn btn-primary">Créer un produit</router-link>
+                    <router-link to="/capacity/create" class="btn btn-primary">Créer une capacité</router-link>
                 </p>
 
                 <!--<div class="form-group">-->
@@ -13,29 +13,25 @@
                 <!--</div>-->
 
                 <el-table
-                        :data="products"
+                        :data="capacities"
                         style="width: 100%">
                     <el-table-column
                             prop="id"
                             label="Id">
                     </el-table-column>
                     <el-table-column
-                            prop="name"
-                            label="Name">
+                            prop="value"
+                            label="Valeur">
                     </el-table-column>
                     <el-table-column
-                            prop="CapacityId"
-                            label="Capacité">
-                    </el-table-column>
-                    <el-table-column
-                            prop="CategoryId"
-                            label="Catégorie">
+                            prop="type"
+                            label="Type">
                     </el-table-column>
                     <el-table-column
                             label="Actions">
                         <template scope="scope">
                             <el-button
-                                    @click.native.prevent="deleteProduct(scope.$index, products)"
+                                    @click.native.prevent="deleteCapacity(scope.$index, capacities)"
                                     type="text"
                                     size="small">
                                 Suppr.
@@ -54,30 +50,27 @@
   export default {
     data () {
       return {
-        products: [],
-        originalProducts: [],
-        productSearch: ''
+        capacities: []
       }
     },
 
     created: function () {
-      this.fetchProductData()
+      this.fetchCapacityData()
     },
 
     methods: {
-      fetchProductData: function () {
-        axios.get(`http://localhost:8080/product/list`)
+      fetchCapacityData: function () {
+        axios.get(`http://localhost:8080/capacity/list`)
           .then(response => {
-            this.products = response.data
-            this.originalProducts = this.categories
+            this.capacities = response.data
           })
           .catch(e => {
             this.errors.push(e)
           })
       },
 
-      deleteProduct: function (index, rows) {
-        axios.delete('http://localhost:8080/product/' + rows[index].id + '/delete')
+      deleteCapacity: function (index, rows) {
+        axios.delete('http://localhost:8080/capacity/' + rows[index].id + '/delete')
           .then((response) => {
           })
           .catch(function (error) {

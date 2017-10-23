@@ -4,7 +4,7 @@
             <el-col :span="10" :offset="6">
                 <h1>Créer un produit</h1>
                 <p>
-                    <router-link :to="{ name: 'product_list' }">Retourner à la liste des produits</router-link>
+                    <router-link to="/product">Retourner à la liste des produits</router-link>
                 </p>
 
                 <el-form ref="form" label-width="240px">
@@ -24,16 +24,16 @@
                             </el-option>
                         </el-select>
                     </el-form-item>
-                    <!--<el-form-item label="Catégorie">-->
-                        <!--<el-select @change="selectParent" v-model="product.CapacityId" placeholder="Selectionner une capacité">-->
-                            <!--<el-option-->
-                                    <!--v-for="cap in capacities"-->
-                                    <!--:key="cat.id"-->
-                                    <!--:label="cat.name"-->
-                                    <!--:value="cat.id">-->
-                            <!--</el-option>-->
-                        <!--</el-select>-->
-                    <!--</el-form-item>-->
+                    <el-form-item label="Capacité">
+                        <el-select v-model="product.CapacityId" placeholder="Selectionner une capacité">
+                            <el-option
+                                    v-for="cap in capacities"
+                                    :key="cap.value"
+                                    :label="cap.type"
+                                    :value="cap.value">
+                            </el-option>
+                        </el-select>
+                    </el-form-item>
                     <el-form-item>
                         <el-button type="primary" @click="addProduct">Créer</el-button>
                         <el-button>Annuler</el-button>
@@ -54,9 +54,11 @@
         product: {
           name: '',
           price: '',
-          CategoryId: ''
+          CategoryId: '',
+          CapacityId: ''
         },
-        categories: this.getCategories()
+        categories: this.getCategories(),
+        capacities: this.getCapacities()
       }
     },
 
@@ -80,11 +82,18 @@
           .catch(e => {
             this.errors.push(e)
           })
+      },
+
+      getCapacities () {
+        axios.get(`http://localhost:8080/capacity/list`)
+          .then(response => {
+            let capacities = response.data
+            this.capacities = capacities
+          })
+          .catch(e => {
+            this.errors.push(e)
+          })
       }
     }
-
-//    components: {
-//      'notification': Notification
-//    }
   }
 </script>

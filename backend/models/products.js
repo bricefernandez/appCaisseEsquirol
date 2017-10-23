@@ -7,6 +7,9 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         Products.hasMany(models.SaleProduct)
+        Products.belongsTo(models.Capacity, {foreignKey: 'CapacityId'})
+        Products.belongsTo(models.Category, {foreignKey: 'CategoryId'})
+        Products.belongsTo(models.Picture, {foreignKey: 'PictureId'})
       }
     }
   });

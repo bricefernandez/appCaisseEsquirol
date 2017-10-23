@@ -4,8 +4,7 @@
             <el-col :span="10" :offset="6"><h1>Toutes les catégories</h1>
 
                 <p>
-                    <router-link :to="{ name: 'category_create' }" class="btn btn-primary">Créer une catégorie
-                    </router-link>
+                    <router-link to="/category/create" class="btn btn-primary">Créer une catégorie</router-link>
                 </p>
 
                 <!--<div class="form-group">-->
@@ -29,12 +28,12 @@
                             label="Level">
                     </el-table-column>
                     <el-table-column
-                            prop="image"
-                            label="Image">
-                    </el-table-column>
-                    <el-table-column
                             prop="parent"
                             label="Parent">
+                    </el-table-column>
+                    <el-table-column
+                            prop="PictureId"
+                            label="Image">
                     </el-table-column>
                     <el-table-column
                             label="Actions">

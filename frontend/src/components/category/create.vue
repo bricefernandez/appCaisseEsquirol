@@ -4,7 +4,7 @@
             <el-col :span="10" :offset="6">
                 <h1>Créer une catégorie</h1>
                 <p>
-                    <router-link :to="{ name: 'category_list' }">Retourner à la liste des catégories</router-link>
+                    <router-link to="/category">Retourner à la liste des catégories</router-link>
                 </p>
 
                 <el-form ref="form" label-width="240px">
