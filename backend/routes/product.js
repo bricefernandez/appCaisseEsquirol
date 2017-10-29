@@ -4,6 +4,7 @@ var router = express.Router()
 
 router.get('/list', function (req, res) {
   models.Products.findAll({
+    attributes: ['id', 'name', 'price', 'image', [models.sequelize.literal("Capacity.value || ' ' || Capacity.type"), 'capacity_full_name']],
     include: [models.Capacity, models.Category]
   })
     .then(function (data) {
@@ -37,6 +38,7 @@ router.post('/create', function (req, res) {
   models.Products.create({
     name: req.param('name'),
     price: req.param('price'),
+    image: req.param('image'),
     CapacityId: req.param('CapacityId'),
     CategoryId: req.param('CategoryId')
   }).then(function (data) {

@@ -1,28 +1,48 @@
 <template>
   <div id="app">
-    <!--<img src="./assets/logo.png">-->
-    <p>
-      <router-link to="/category">Go to categories</router-link>
-      <router-link to="/product">Go to products</router-link>
-      <router-link to="/capacity">Go to capacity</router-link>
-    </p>
+    <el-menu class="el-menu-demo" mode="horizontal" :default-active="activeLink" :router="true">
+      <el-menu-item index="backoffice" route="/backoffice">Back Office</el-menu-item>
+      <el-menu-item index="caisse" route="/caisse">Caisse</el-menu-item>
+      <el-menu-item index="conditionnement" route="/conditionnement">Conditionnement</el-menu-item>
+      <el-menu-item index="culture" route="/culture">Culture</el-menu-item>
+      <el-menu-item index="apports" route="/apports">Apports</el-menu-item>
+    </el-menu>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  data () {
+    return {
+      activeLink: null
+    }
+  },
+  mounted () {
+    if (this.$route.path.indexOf('/backoffice') !== -1) {
+      this.activeLink = 'backoffice'
+    }
+  }
 }
 </script>
 
 <style>
+
+body {
+  background-color: #FFF;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+
+.icon {
+  font-size:20px;
+}
+
 </style>

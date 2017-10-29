@@ -1,16 +1,11 @@
 <template>
     <div id="all-capacities">
         <el-row>
-            <el-col :span="10" :offset="6"><h1>Toutes les capacités</h1>
+            <el-col :span="21" :offset="3"><h1>Toutes les capacités</h1>
 
                 <p>
-                    <router-link to="/capacity/create" class="btn btn-primary">Créer une capacité</router-link>
+                    <router-link to="/backoffice/capacity/create" class="btn btn-primary">Créer une capacité</router-link>
                 </p>
-
-                <!--<div class="form-group">-->
-                <!--<input type="text" name="search" v-model="productSearch" placeholder="Search products" class="form-control"-->
-                <!--v-on:keyup="searchProducts">-->
-                <!--</div>-->
 
                 <el-table
                         :data="capacities"

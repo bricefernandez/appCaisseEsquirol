@@ -4,7 +4,7 @@
             <el-col :span="10" :offset="6">
                 <h1>Créer une catégorie</h1>
                 <p>
-                    <router-link to="/category">Retourner à la liste des catégories</router-link>
+                    <router-link to="/backoffice/category">Retourner à la liste des catégories</router-link>
                 </p>
 
                 <el-form ref="form" label-width="240px">
@@ -12,7 +12,8 @@
                         <el-input v-model="category.name"></el-input>
                     </el-form-item>
                     <el-form-item label="Catégorie parente">
-                        <el-select @change="selectParent" v-model="category.parent" placeholder="Selectionner un parent">
+                        <el-select @change="selectParent" v-model="category.parent"
+                                   placeholder="Selectionner un parent">
                             <el-option
                                     v-for="parent in parents"
                                     :key="parent.id"
@@ -25,11 +26,14 @@
                         <el-input v-model="category.level">{{ category.level }}</el-input>
                     </el-form-item>
                     <el-form-item label="Image">
-                        <el-input v-model="category.image"></el-input>
+                        <el-input v-model="category.image" @change="imageUpdate"></el-input>
+                        <img :src="imageUrl"/>
                     </el-form-item>
                     <el-form-item>
                         <el-button type="primary" @click="addCategory">Créer</el-button>
-                        <el-button>Annuler</el-button>
+                    </el-form-item>
+                    <el-form-item>
+                        <!--<el-button type="primary" @click="updateCategory">Modifier</el-button>-->
                     </el-form-item>
                 </el-form>
             </el-col>
@@ -44,6 +48,7 @@
   export default {
     data () {
       return {
+        imageUrl: '',
         category: {
           name: '',
           level: '',
@@ -57,12 +62,32 @@
     methods: {
       addCategory: function () {
         axios.post('http://localhost:8080/category/create', this.category)
-          .then(function (response) {
+          .then(response => {
+            location.reload()
           })
-          .catch(function (error) {
+          .catch(error => {
             console.log(error)
           })
       },
+
+//      getCategory () {
+//        console.log('ready')
+//        if (this.$route.params.categoryId !== 'undefined') {
+//          axios.get(`http://localhost:8080/category/` + this.$route.params.categoryId)
+//            .then(response => {
+//              console.log('into request returning object')
+//              return {
+//                name: response.data.name,
+//                level: response.data.level,
+//                image: response.data.image,
+//                parent: response.data.parent
+//              }
+//            })
+//            .catch(e => {
+//              console.log(e)
+//            })
+//        }
+//      },
 
       selectParent: function (event) {
         if (event === 0) {
@@ -74,7 +99,7 @@
               this.category.level = parseInt(cat[0].level) + 1
             })
             .catch(e => {
-              this.errors.push(e)
+              console.log(e)
             })
         }
       },
@@ -87,13 +112,13 @@
             this.parents = categories
           })
           .catch(e => {
-            this.errors.push(e)
+            console.log(e)
           })
+      },
+
+      imageUpdate (event) {
+        this.imageUrl = 'static/images/' + event
       }
     }
-
-//    components: {
-//      'notification': Notification
-//    }
   }
 </script>

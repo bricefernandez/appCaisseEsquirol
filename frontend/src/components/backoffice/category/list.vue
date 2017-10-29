@@ -1,16 +1,11 @@
 <template>
     <div id="all-categories">
         <el-row>
-            <el-col :span="10" :offset="6"><h1>Toutes les catégories</h1>
+            <el-col :span="21" :offset="3"><h1>Toutes les catégories</h1>
 
                 <p>
-                    <router-link to="/category/create" class="btn btn-primary">Créer une catégorie</router-link>
+                    <router-link to="/backoffice/category/create" class="btn btn-primary">Créer une catégorie</router-link>
                 </p>
-
-                <!--<div class="form-group">-->
-                <!--<input type="text" name="search" v-model="productSearch" placeholder="Search products" class="form-control"-->
-                <!--v-on:keyup="searchProducts">-->
-                <!--</div>-->
 
                 <el-table
                         :data="categories"
@@ -32,17 +27,27 @@
                             label="Parent">
                     </el-table-column>
                     <el-table-column
-                            prop="PictureId"
+                            prop="image"
                             label="Image">
+                        <template slot-scope="scope">
+                            <img :src="'static/images/' + scope.row.image"/>
+                        </template>
                     </el-table-column>
                     <el-table-column
                             label="Actions">
                         <template scope="scope">
+                            <!--<router-link :to="{path: '/backoffice/category/create', params: {categoryId: scope.$index}}">-->
+                                <!--<el-button-->
+                                        <!--type="text"-->
+                                        <!--size="small">-->
+                                    <!--<i class="icon el-icon-edit"></i>-->
+                                <!--</el-button>-->
+                            <!--</router-link>-->
                             <el-button
                                     @click.native.prevent="deleteCategory(scope.$index, categories)"
                                     type="text"
                                     size="small">
-                                Suppr.
+                                <i class="icon el-icon-delete"></i>
                             </el-button>
                         </template>
                     </el-table-column>
@@ -93,3 +98,9 @@
     }
   }
 </script>
+
+<style>
+    img {
+        height: 100px;
+    }
+</style>

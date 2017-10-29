@@ -1,16 +1,11 @@
 <template>
     <div id="all-products">
         <el-row>
-            <el-col :span="10" :offset="6"><h1>Tous les produits</h1>
+            <el-col :span="21" :offset="3"><h1>Tous les produits</h1>
 
                 <p>
-                    <router-link to="/product/create" class="btn btn-primary">Créer un produit</router-link>
+                    <router-link to="/backoffice/product/create" class="btn btn-primary">Créer un produit</router-link>
                 </p>
-
-                <!--<div class="form-group">-->
-                <!--<input type="text" name="search" v-model="productSearch" placeholder="Search products" class="form-control"-->
-                <!--v-on:keyup="searchProducts">-->
-                <!--</div>-->
 
                 <el-table
                         :data="products"
@@ -24,12 +19,23 @@
                             label="Name">
                     </el-table-column>
                     <el-table-column
-                            prop="CapacityId"
+                            prop="price"
+                            label="Prix">
+                    </el-table-column>
+                    <el-table-column
+                            prop="capacity_full_name"
                             label="Capacité">
                     </el-table-column>
                     <el-table-column
-                            prop="CategoryId"
+                            prop="Category.name"
                             label="Catégorie">
+                    </el-table-column>
+                    <el-table-column
+                            prop="image"
+                            label="Image">
+                        <template slot-scope="scope">
+                            <img :src="'static/images/' + scope.row.image"/>
+                        </template>
                     </el-table-column>
                     <el-table-column
                             label="Actions">
@@ -89,3 +95,9 @@
     }
   }
 </script>
+
+<style>
+    img {
+        height: 100px;
+    }
+</style>

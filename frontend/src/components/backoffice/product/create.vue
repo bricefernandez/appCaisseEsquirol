@@ -4,7 +4,7 @@
             <el-col :span="10" :offset="6">
                 <h1>Créer un produit</h1>
                 <p>
-                    <router-link to="/product">Retourner à la liste des produits</router-link>
+                    <router-link to="/backoffice/product">Retourner à la liste des produits</router-link>
                 </p>
 
                 <el-form ref="form" label-width="240px">
@@ -28,11 +28,15 @@
                         <el-select v-model="product.CapacityId" placeholder="Selectionner une capacité">
                             <el-option
                                     v-for="cap in capacities"
-                                    :key="cap.value"
-                                    :label="cap.type"
-                                    :value="cap.value">
+                                    :key="cap.id"
+                                    :label="cap.full_name"
+                                    :value="cap.id">
                             </el-option>
                         </el-select>
+                    </el-form-item>
+                    <el-form-item label="Image">
+                        <el-input v-model="product.image" @change="imageUpdate"></el-input>
+                        <img :src="imageUrl"/>
                     </el-form-item>
                     <el-form-item>
                         <el-button type="primary" @click="addProduct">Créer</el-button>
@@ -51,9 +55,11 @@
   export default {
     data () {
       return {
+        imageUrl: '',
         product: {
           name: '',
           price: '',
+          image: '',
           CategoryId: '',
           CapacityId: ''
         },
@@ -65,7 +71,8 @@
     methods: {
       addProduct: function () {
         axios.post('http://localhost:8080/product/create', this.product)
-          .then(function (response) {
+          .then(response => {
+            location.reload()
           })
           .catch(function (error) {
             console.log(error)
@@ -93,6 +100,10 @@
           .catch(e => {
             this.errors.push(e)
           })
+      },
+
+      imageUpdate (event) {
+        this.imageUrl = 'static/images/' + event
       }
     }
   }

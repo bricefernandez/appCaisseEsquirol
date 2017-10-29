@@ -3,7 +3,10 @@ var express = require('express')
 var router = express.Router()
 
 router.get('/list', function (req, res) {
-  models.Capacity.findAll({group: 'type, value'})
+  models.Capacity.findAll({
+    group: 'type, value',
+    attributes: ['id', 'value', 'type', [models.sequelize.literal("value || ' ' || type"), 'full_name']]
+  })
     .then(function (data) {
       res.send(data)
     })

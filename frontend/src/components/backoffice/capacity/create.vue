@@ -4,7 +4,7 @@
             <el-col :span="10" :offset="6">
                 <h1>Créer une capacité</h1>
                 <p>
-                    <router-link to="/capacity">Retourner à la liste des capacités</router-link>
+                    <router-link to="/backoffice/capacity">Retourner à la liste des capacités</router-link>
                 </p>
 
                 <el-form ref="form" label-width="240px">
@@ -55,7 +55,8 @@
     methods: {
       addCapacity: function () {
         axios.post('http://localhost:8080/capacity/create', this.capacity)
-          .then(function (response) {
+          .then(response => {
+            location.reload()
           })
           .catch(function (error) {
             console.log(error)
