@@ -23,6 +23,9 @@ export default {
     if (this.$route.path.indexOf('/backoffice') !== -1) {
       this.activeLink = 'backoffice'
     }
+    if (this.$route.path.indexOf('/caisse') !== -1) {
+      this.activeLink = 'caisse'
+    }
   }
 }
 </script>

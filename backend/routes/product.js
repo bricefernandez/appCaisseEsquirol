@@ -12,6 +12,22 @@ router.get('/list', function (req, res) {
     })
 })
 
+router.get('/get', function (req, res) {
+  let conditions = {};
+  'id' in req.query ? conditions.id = req.query.id :
+  'name' in req.query ? conditions.name = req.query.name :
+  'price' in req.query ? conditions.price = req.query.price :
+  'CapacityId' in req.query ? conditions.CapacityId = req.query.CapacityId :
+  'CategoryId' in req.query ? conditions.CategoryId = req.query.CategoryId :
+  models.Products.findAll({
+    include: [models.Capacity, models.Category],
+    where: conditions
+  })
+    .then(function (data) {
+      res.send(data)
+    })
+})
+
 router.get('/list/:attributes', function (req, res) {
   let attributes = req.params.attributes;
   models.Products.findAll({

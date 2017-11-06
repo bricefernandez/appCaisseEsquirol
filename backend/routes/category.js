@@ -9,8 +9,24 @@ router.get('/list', function (req, res) {
     })
 })
 
+router.get('/get', function (req, res) {
+  let conditions = {};
+  'id' in req.query ? conditions.id = req.query.id :
+  'name' in req.query ? conditions.name = req.query.name :
+  'level' in req.query ? conditions.level = req.query.level :
+  'parent' in req.query ? conditions.parent = req.query.parent :
+  console.log(conditions)
+  models.Category.findAll({
+    include: [models.Products],
+    where: conditions
+  })
+  .then(function (data) {
+    res.send(data)
+  })
+})
+
 router.get('/list/:attributes', function (req, res) {
-  let attributes = req.params.attributes;
+  let attributes = req.params.attributes
   models.Category.findAll({
     attributes: attributes.split('&')
   })
