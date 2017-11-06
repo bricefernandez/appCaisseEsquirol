@@ -2,32 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34ed6194-bd23-4307-b828-6b8211773ea0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/components/backoffice/backOffice.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/components/backoffice/category/update.vue" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/models/picture.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/npm-debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/src/components/capacity/update.vue" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/components/capacity/create.vue" afterPath="$PROJECT_DIR$/frontend/src/components/backoffice/capacity/create.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/components/capacity/delete.vue" afterPath="$PROJECT_DIR$/frontend/src/components/backoffice/product/delete.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/components/capacity/list.vue" afterPath="$PROJECT_DIR$/frontend/src/components/backoffice/capacity/list.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/components/category/create.vue" afterPath="$PROJECT_DIR$/frontend/src/components/backoffice/category/create.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/components/category/delete.vue" afterPath="$PROJECT_DIR$/frontend/src/components/backoffice/category/delete.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/components/category/list.vue" afterPath="$PROJECT_DIR$/frontend/src/components/backoffice/category/list.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/components/category/update.vue" afterPath="$PROJECT_DIR$/frontend/src/components/backoffice/product/update.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/components/product/create.vue" afterPath="$PROJECT_DIR$/frontend/src/components/backoffice/product/create.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/components/product/delete.vue" afterPath="$PROJECT_DIR$/frontend/src/components/backoffice/capacity/delete.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/components/product/list.vue" afterPath="$PROJECT_DIR$/frontend/src/components/backoffice/product/list.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/src/components/product/update.vue" afterPath="$PROJECT_DIR$/frontend/src/components/backoffice/capacity/update.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/equirol_dev" afterPath="$PROJECT_DIR$/backend/equirol_dev" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/components/caisse/Caisse.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/components/caisse/Payments.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/components/caisse/Products.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/components/caisse/Sale.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/components/caisse/Shortcuts.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/components/caisse/Total.vue" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/10L.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/20L.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/25L.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/30L.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/50L.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/5L.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bqf.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bv.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/confpm.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/dec.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fromagebo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/huiliergm.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/huilierpm.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/huilierverre.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pg.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/rv.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/saladierbo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/verresbo.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/models/category.js" afterPath="$PROJECT_DIR$/backend/models/category.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/models/products.js" afterPath="$PROJECT_DIR$/backend/models/products.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/models/sale.js" afterPath="$PROJECT_DIR$/backend/models/sale.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/routes/capacity.js" afterPath="$PROJECT_DIR$/backend/routes/capacity.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/routes/category.js" afterPath="$PROJECT_DIR$/backend/routes/category.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/routes/product.js" afterPath="$PROJECT_DIR$/backend/routes/product.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/build/webpack.base.conf.js" afterPath="$PROJECT_DIR$/frontend/build/webpack.base.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package.json" afterPath="$PROJECT_DIR$/frontend/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/App.vue" afterPath="$PROJECT_DIR$/frontend/src/App.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main.js" afterPath="$PROJECT_DIR$/frontend/src/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/router/index.js" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,84 +56,11 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/router/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-422">
-              <caret line="46" column="34" lean-forward="true" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+            <state relative-caret-position="54">
+              <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="31" selection-end-line="4" selection-end-column="23" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
-                <element signature="e#238#302#0" expanded="true" />
-                <element signature="e#528#590#0" expanded="true" />
                 <element signature="e#810#874#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="update.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/backoffice/category/update.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="backOffice.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/backoffice/backOffice.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="40" column="39" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="webpack.base.conf.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/build/webpack.base.conf.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="63" column="8" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/backoffice/capacity/list.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="10" lean-forward="true" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/backoffice/category/create.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-458">
-              <caret line="69" column="12" lean-forward="true" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/backoffice/product/list.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1782">
-              <caret line="99" column="4" lean-forward="false" selection-start-line="99" selection-start-column="4" selection-end-line="101" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -138,24 +68,83 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+            <state relative-caret-position="270">
+              <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="14" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
                 <element signature="e#140#161#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/components/backoffice/category/list.vue">
+      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="35" column="36" lean-forward="true" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
+            <state relative-caret-position="522">
+              <caret line="29" column="1" lean-forward="false" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Products.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/caisse/Products.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="13" column="21" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="13" selection-end-column="21" />
               <folding>
-                <element signature="n#style#0;n#el-table#0;n#el-col#0;n#el-row#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#688#713#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Payments.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/caisse/Payments.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="42" lean-forward="false" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sale.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/caisse/Sale.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Shortcuts.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/caisse/Shortcuts.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="42" lean-forward="false" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Total.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/caisse/Total.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="42" lean-forward="false" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Caisse.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/caisse/Caisse.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="666">
+              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -182,6 +171,7 @@
       <find>sync()</find>
       <find>Element</find>
       <find>/category</find>
+      <find>new Vue</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -203,7 +193,6 @@
         <option value="$PROJECT_DIR$/backend/models/capacity.js" />
         <option value="$PROJECT_DIR$/frontend/.eslintrc.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/capacity/list.vue" />
-        <option value="$PROJECT_DIR$/backend/routes/category.js" />
         <option value="$PROJECT_DIR$/backend/routes/capacity.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/category/read.vue" />
         <option value="$PROJECT_DIR$/backend/models/products.js" />
@@ -217,20 +206,30 @@
         <option value="$PROJECT_DIR$/frontend/src/components/category/create.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/product/create.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/product/list.vue" />
-        <option value="$PROJECT_DIR$/backend/routes/product.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/backoffice/backoffice.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/backoffice/capacity/create.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/backoffice/product/create.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/backoffice/capacity/list.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/backoffice/product/list.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/App.vue" />
         <option value="$PROJECT_DIR$/frontend/build/webpack.base.conf.js" />
-        <option value="$PROJECT_DIR$/frontend/src/main.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/backoffice/backOffice.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/backoffice/category/update.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/router/index.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/backoffice/category/create.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/backoffice/category/list.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/backoffice/Caisse.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/caisse/CaisseContainer.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/router/index.js" />
+        <option value="$PROJECT_DIR$/frontend/src/App.vue" />
+        <option value="$PROJECT_DIR$/frontend/config/index.js" />
+        <option value="$PROJECT_DIR$/backend/routes/category.js" />
+        <option value="$PROJECT_DIR$/backend/routes/product.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/caisse/Payments.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/caisse/Shortcuts.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/caisse/Total.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/caisse/Caisse.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/main.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/caisse/Products.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/caisse/Sale.vue" />
       </list>
     </option>
   </component>
@@ -291,8 +290,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -304,18 +303,6 @@
               <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="EsquirolApp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EsquirolApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="bin" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EsquirolApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="migrations" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
@@ -338,47 +325,7 @@
               <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="EsquirolApp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="build" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EsquirolApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EsquirolApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EsquirolApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EsquirolApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="huiles" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EsquirolApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="huiles" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="FVL" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
@@ -393,16 +340,7 @@
               <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backoffice" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EsquirolApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backoffice" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="category" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="caisse" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
@@ -410,27 +348,6 @@
               <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="router" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EsquirolApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EsquirolApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="EsquirolApp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="EsquirolApp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="images" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="huiles" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -441,7 +358,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../trunk" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
@@ -453,13 +370,16 @@
     <property name="node.js.selected.package.standard" value="$PROJECT_DIR$/frontend/node_modules/eslint" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/components/caisse" />
+      <recent name="$PROJECT_DIR$/frontend/src/components/backoffice" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/components/caisse" />
+      <recent name="$PROJECT_DIR$/frontend/src/components/backoffice" />
       <recent name="$PROJECT_DIR$/frontend/src/components/backoffice/category" />
       <recent name="$PROJECT_DIR$/backend/routes" />
       <recent name="$PROJECT_DIR$/frontend/src/components" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontend/src/components/backoffice" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -490,6 +410,9 @@
       <workItem from="1508571332068" duration="25021000" />
       <workItem from="1509119101472" duration="30149000" />
       <workItem from="1509268598073" duration="11929000" />
+      <workItem from="1509807886883" duration="8680000" />
+      <workItem from="1509875078844" duration="13902000" />
+      <workItem from="1509953706155" duration="186000" />
     </task>
     <task id="LOCAL-00001" summary="cat crud + product crud beggining">
       <created>1508608111538</created>
@@ -530,13 +453,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85157000" />
+    <option name="totallyTimeSpent" value="122813000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="99" y="-4" width="1865" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18271877" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18932305" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -597,76 +520,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/backoffice/product/create.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="72" column="24" lean-forward="true" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/models/products.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/migrations/20171008135658-create-category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/migrations/20171022100952-create-capacity.js" />
-    <entry file="file://$PROJECT_DIR$/backend/models/capacity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/models/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="18" lean-forward="true" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/migrations/20171022101644-create-picture.js" />
-    <entry file="file://$PROJECT_DIR$/backend/models/product.js" />
-    <entry file="file://$PROJECT_DIR$/backend/models/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#238#302#0" expanded="true" />
-            <element signature="e#528#590#0" expanded="true" />
-            <element signature="e#810#874#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Hello.vue" />
-    <entry file="file://$PROJECT_DIR$/backend/models/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Users.vue" />
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Users.vue" />
-    <entry file="file://$PROJECT_DIR$/backend/routes/users.js" />
     <entry file="file://$PROJECT_DIR$/frontend/src/assets/logo.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -709,13 +562,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/models/saleproduct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -746,20 +592,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/models/picture.js" />
-    <entry file="file://$PROJECT_DIR$/backend/routes/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-342">
-          <caret line="5" column="55" lean-forward="false" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/models/sale.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/models/capacity.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -802,26 +634,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/routes/product.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="48" lean-forward="false" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/backoffice/capacity/create.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="48" lean-forward="false" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/backoffice/product/create.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="48" lean-forward="false" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -829,7 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="10" lean-forward="true" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -837,15 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1782">
           <caret line="99" column="4" lean-forward="false" selection-start-line="99" selection-start-column="4" selection-end-line="101" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -853,26 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="63" column="8" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#140#161#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/backoffice/backOffice.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="40" column="39" lean-forward="true" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -880,20 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-422">
-          <caret line="46" column="34" lean-forward="true" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#238#302#0" expanded="true" />
-            <element signature="e#528#590#0" expanded="true" />
-            <element signature="e#810#874#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -901,7 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-458">
           <caret line="69" column="12" lean-forward="true" selection-start-line="69" selection-start-column="12" selection-end-line="69" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -909,8 +680,146 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
           <caret line="35" column="36" lean-forward="true" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/caisse/CaisseContainer.vue" />
+    <entry file="file://$PROJECT_DIR$/5L.png" />
+    <entry file="file://$PROJECT_DIR$/10L.png" />
+    <entry file="file://$PROJECT_DIR$/20L.png" />
+    <entry file="file://$PROJECT_DIR$/25L.png" />
+    <entry file="file://$PROJECT_DIR$/bqf.jpg" />
+    <entry file="file://$PROJECT_DIR$/bv.png" />
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/backoffice/product/create.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="35" column="23" lean-forward="false" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/config/dev.env.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/backoffice/backOffice.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/routes/product.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="33" column="37" lean-forward="true" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/routes/category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="45" column="20" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/caisse/Shortcuts.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="42" lean-forward="false" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/caisse/Total.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="42" lean-forward="false" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/caisse/Caisse.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="29" column="1" lean-forward="false" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="31" selection-end-line="4" selection-end-column="23" />
           <folding>
-            <element signature="n#style#0;n#el-table#0;n#el-col#0;n#el-row#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#810#874#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/models/saleproduct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/models/sale.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/caisse/Payments.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="42" lean-forward="false" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/caisse/Products.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="21" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="13" selection-end-column="21" />
+          <folding>
+            <element signature="e#688#713#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/caisse/Sale.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="14" />
+          <folding>
+            <element signature="e#140#161#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -24,12 +24,35 @@ import CreateCapacity from '@/components/backoffice/capacity/create'
 import UpdateCapacity from '@/components/backoffice/capacity/update'
 import DeleteCapacity from '@/components/backoffice/capacity/delete'
 
+import Caisse from '@/components/caisse/Caisse'
+import Products from '@/components/caisse/Products'
+import Sale from '@/components/caisse/Sale'
+import Shortcuts from '@/components/caisse/Shortcuts'
+import Payments from '@/components/caisse/Payments'
+import Total from '@/components/caisse/Total'
+
 Vue.use(Router)
 Vue.use(Element)
 Vue.use(Vuex)
 
 export default new Router({
   routes: [
+    {
+      path: '/caisse',
+      component: Caisse,
+      children: [
+        {
+          path: '/',
+          components: {
+            products: Products,
+            sale: Sale,
+            shortcuts: Shortcuts,
+            payments: Payments,
+            total: Total
+          }
+        }
+      ]
+    },
     {
       path: '/backOffice',
       component: backOffice,
