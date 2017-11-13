@@ -36,13 +36,9 @@
                     <el-table-column
                             label="Actions">
                         <template scope="scope">
-                            <!--<router-link :to="{path: '/backoffice/category/create', params: {categoryId: scope.$index}}">-->
-                                <!--<el-button-->
-                                        <!--type="text"-->
-                                        <!--size="small">-->
-                                    <!--<i class="icon el-icon-edit"></i>-->
-                                <!--</el-button>-->
-                            <!--</router-link>-->
+                            <router-link :to="{ path: `category/update/${scope.row.id}`}" class="btn btn-primary">
+                                <i class="icon el-icon-edit"></i>
+                            </router-link>
                             <el-button
                                     @click.native.prevent="deleteCategory(scope.$index, categories)"
                                     type="text"

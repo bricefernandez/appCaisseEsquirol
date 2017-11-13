@@ -61,6 +61,23 @@ router.post('/create', function (req, res) {
     })
 })
 
+router.put('/update', function (req, res) {
+  models.Category.update({
+    name: req.param('name'),
+    level: req.param('level'),
+    image: req.param('image'),
+    parent: req.param('parent')
+  }, {
+    where: {
+      id: req.param('id')
+    }
+  }).then(function (data) {
+    res.send(data)
+  }).catch(function (error) {
+    res.send(error)
+  })
+})
+
 router.delete('/:category_id/delete', function (req, res) {
   models.Category.destroy({
     where: {

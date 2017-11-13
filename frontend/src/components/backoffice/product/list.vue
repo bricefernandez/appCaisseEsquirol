@@ -40,11 +40,14 @@
                     <el-table-column
                             label="Actions">
                         <template scope="scope">
+                            <router-link :to="{ path: `product/update/${scope.row.id}`}" class="btn btn-primary">
+                                <i class="icon el-icon-edit"></i>
+                            </router-link>
                             <el-button
                                     @click.native.prevent="deleteProduct(scope.$index, products)"
                                     type="text"
                                     size="small">
-                                Suppr.
+                                <i class="icon el-icon-delete"></i>
                             </el-button>
                         </template>
                     </el-table-column>

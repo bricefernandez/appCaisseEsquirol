@@ -75,7 +75,7 @@ export default new Router({
           component: CreateCategory
         },
         {
-          path: 'category/update',
+          path: 'category/update/:category_id',
           component: UpdateCategory
         },
         {
@@ -92,7 +92,7 @@ export default new Router({
           component: CreateProduct
         },
         {
-          path: 'product/update',
+          path: 'product/update/:product_id',
           component: UpdateProduct
         },
         {

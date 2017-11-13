@@ -19,6 +19,7 @@ const store = new Vuex.Store({
     addProduct (state, product) {
       state.productList.push(product)
       state.productIds.push(product.id)
+      state.totalPrice += product.price
     },
     removeProduct (state, index) {
       state.productList.splice(index, 1)

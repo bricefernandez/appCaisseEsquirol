@@ -1,18 +1,25 @@
 <template>
     <el-container>
-        <el-header><h2 class="caisseTitle">Produits</h2></el-header>
-        <el-row class="ProductsList">
-            <el-col class="ProductsContainer" :span="6" v-for="item in items">
-                <div v-on:click="clickProduct(item, $event)">
-                    <img class="ProductsImg" :src="`static/images${item.image}`"/>
-                    <div>{{ item.name }}</div>
-                    <!--{{ item.id }}-->
-                    <!--{{ item.name }}-->
-                    <!--{{ item.level }}-->
-                    <!--{{ item.parent }}-->
-                </div>
-            </el-col>
-        </el-row>
+        <el-header>
+            <el-row>
+                <el-col :span="20">
+                    <div class="caisseTitle">Produits</div>
+                </el-col>
+                <el-col :span="4">
+                    <div class="caisseTitle" v-on:click="backToPreviousCategory()"><i class="icon el-icon-arrow-left"></i></div>
+                </el-col>
+            </el-row>
+        </el-header>
+        <el-main>
+            <el-row class="ProductsList">
+                <el-col class="ProductsContainer" :span="6" v-for="item in items">
+                    <div v-on:click="clickProduct(item, $event)">
+                        <img class="ProductsImg" :src="`static/images${item.image}`"/>
+                        <div>{{ item.name }}</div>
+                    </div>
+                </el-col>
+            </el-row>
+        </el-main>
     </el-container>
 </template>
 
@@ -30,6 +37,7 @@
       }
     },
     methods: {
+
       getSubCategoriesOrProducts (parent) {
         axios.get(`http://localhost:8080/category/get?parent=${parent}`)
           .then(response => {
@@ -44,8 +52,8 @@
             this.errors.push(e)
           })
       },
+
       getProducts (categoryId) {
-        console.log('getting produc')
         axios.get(`http://localhost:8080/product/get?CategoryId=${categoryId}`)
           .then(response => {
             this.items = response.data
@@ -55,15 +63,23 @@
             this.errors.push(e)
           })
       },
+
       addProduct (item) {
         item.quantity = 1
         this.$store.commit('addProduct', item)
       },
+
       clickProduct (item, event) {
         if (this.isProduct === true) {
           this.addProduct(item)
         } else {
           this.getSubCategoriesOrProducts(item.id)
+        }
+      },
+
+      backToPreviousCategory (event) {
+        if (this.currentParentId !== 0) {
+          this.getSubCategoriesOrProducts(this.currentParentId)
         }
       }
     }

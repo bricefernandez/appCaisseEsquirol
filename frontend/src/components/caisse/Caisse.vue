@@ -32,6 +32,10 @@
 
 <style>
     .caisseTitle {
+        font-size: 24px;
+        font-weight: bold;
+        padding: 6px;
+        margin-bottom: 10px;
         background-color: beige;
     }
 </style>

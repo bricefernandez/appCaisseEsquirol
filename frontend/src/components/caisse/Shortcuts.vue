@@ -1,6 +1,6 @@
 <template>
     <el-container>
-        <el-header><h2 class="caisseTitle">Raccourcis</h2></el-header>
+        <el-header><div class="caisseTitle">Raccourcis</div></el-header>
         <el-main>Main</el-main>
     </el-container>
 </template>
