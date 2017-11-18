@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Icon from 'vue-awesome/components/Icon'
 
 Vue.config.productionTip = false
 
@@ -13,7 +14,7 @@ const store = new Vuex.Store({
     totalPrice: 0,
     productList: [],
     productIds: [],
-    payment: ''
+    payment: 'cb'
   },
   mutations: {
     addProduct (state, product) {
@@ -22,17 +23,30 @@ const store = new Vuex.Store({
       state.totalPrice += product.price
     },
     removeProduct (state, index) {
+      state.totalPrice -= state.productList[index].price
       state.productList.splice(index, 1)
       state.productIds.splice(index, 1)
     },
     addQuantity (state, index) {
       state.productList[index].quantity ++
+      state.totalPrice += state.productList[index].price
     },
     removeQuantity (state, index) {
       state.productList[index].quantity --
+      state.totalPrice -= state.productList[index].price
+    },
+    updatePayment (state, payment) {
+      state.payment = payment
+    },
+    hackUpdate (state) {
+      state.productList.push({})
+      state.productList.pop()
     }
   }
 })
+
+// globally (in your main .js file)
+Vue.component('icon', Icon)
 
 /* eslint-disable no-new */
 new Vue({

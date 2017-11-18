@@ -19,14 +19,58 @@
                 <el-col :span="5">
                     <router-view name="total"></router-view>
                 </el-col>
+                <el-col :span="5">
+                    <el-container>
+                        <el-header>
+                            <div class="caisseTitle">Valider</div>
+                        </el-header>
+                        <el-main class="Container">
+                            <el-col :span="24">
+                                <el-button class="ValidIcon" v-on:click="validSale">
+                                    <icon name="check"></icon>
+                                </el-button>
+                            </el-col>
+                        </el-main>
+                    </el-container>
+                </el-col>
             </el-row>
         </el-col>
     </div>
 </template>
 
 <script>
+  import axios from 'axios'
+  import ElButton from '../../../node_modules/element-ui/packages/button/src/button.vue'
+
   export default {
-    name: 'caisse'
+    components: {ElButton},
+    name: 'caisse',
+    methods: {
+      validSale (event) {
+        console.log('submitting sale')
+        let sale = {
+          totalPrice: this.$store.state.totalPrice,
+          payment: this.$store.state.payment
+        }
+        axios.post('http://localhost:8080/sale/create', sale)
+          .then(response => {
+            let saleProducts = {
+              saleId: response.data.id,
+              productList: this.$store.state.productList
+            }
+            axios.post('http://localhost:8080/sale/products/create', saleProducts)
+              .then(response => {
+                location.reload()
+              })
+              .catch(function (error) {
+                console.log(error)
+              })
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      }
+    }
   }
 </script>
 
@@ -37,5 +81,10 @@
         padding: 6px;
         margin-bottom: 10px;
         background-color: beige;
+    }
+
+    .ValidIcon {
+        margin-top: 10px;
+        color: green;
     }
 </style>

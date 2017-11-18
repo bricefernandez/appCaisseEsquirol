@@ -6,7 +6,8 @@
                     <div class="caisseTitle">Produits</div>
                 </el-col>
                 <el-col :span="4">
-                    <div class="caisseTitle" v-on:click="backToPreviousCategory()"><i class="icon el-icon-arrow-left"></i></div>
+                    <div class="caisseTitle" v-on:click="backToPreviousCategory()"><i
+                            class="icon el-icon-arrow-left"></i></div>
                 </el-col>
             </el-row>
         </el-header>
@@ -65,8 +66,14 @@
       },
 
       addProduct (item) {
-        item.quantity = 1
-        this.$store.commit('addProduct', item)
+        let itemIndex = this.findIndex(item)
+        if (itemIndex !== -1) {
+          this.$store.commit('addQuantity', itemIndex)
+          this.$store.commit('hackUpdate')
+        } else {
+          item.quantity = 1
+          this.$store.commit('addProduct', item)
+        }
       },
 
       clickProduct (item, event) {
@@ -78,9 +85,12 @@
       },
 
       backToPreviousCategory (event) {
-        if (this.currentParentId !== 0) {
-          this.getSubCategoriesOrProducts(this.currentParentId)
-        }
+        this.getSubCategoriesOrProducts(0)
+      },
+
+      findIndex (item) {
+        let index = this.$store.state.productList.findIndex(x => x.id === item.id)
+        return index
       }
     }
   }
@@ -98,6 +108,7 @@
 
     .ProductsList {
         max-height: 500px;
+        min-height: 500px;
         overflow: scroll;
     }
 </style>

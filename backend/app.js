@@ -9,14 +9,13 @@ var routes = require('./routes/index');
 var category  = require('./routes/category');
 var product  = require('./routes/product');
 var capacity  = require('./routes/capacity');
+var sale  = require('./routes/sale');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
-console.log("coucou")
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -39,9 +38,7 @@ app.use('/', routes);
 app.use('/category', category);
 app.use('/product', product);
 app.use('/capacity', capacity);
-
-
-
+app.use('/sale', sale);
 
 // error handler
 // no stacktraces leaked to user unless in development environment
