@@ -55,7 +55,7 @@
 
     methods: {
       fetchCapacityData: function () {
-        axios.get(`http://localhost:8080/capacity/list`)
+        axios.get(`${this.$store.state.url}/capacity/list`)
           .then(response => {
             this.capacities = response.data
           })
@@ -65,7 +65,7 @@
       },
 
       deleteCapacity: function (index, rows) {
-        axios.delete('http://localhost:8080/capacity/' + rows[index].id + '/delete')
+        axios.delete(`${this.$store.state.url}/capacity/` + rows[index].id + '/delete')
           .then((response) => {
           })
           .catch(function (error) {

@@ -40,7 +40,7 @@
     methods: {
 
       getSubCategoriesOrProducts (parent) {
-        axios.get(`http://localhost:8080/category/get?parent=${parent}`)
+        axios.get(`${this.$store.state.url}/category/get?parent=${parent}`)
           .then(response => {
             if (response.data.length > 0) {
               this.items = response.data
@@ -55,7 +55,7 @@
       },
 
       getProducts (categoryId) {
-        axios.get(`http://localhost:8080/product/get?CategoryId=${categoryId}`)
+        axios.get(`${this.$store.state.url}/product/get?CategoryId=${categoryId}`)
           .then(response => {
             this.items = response.data
             this.isProduct = true

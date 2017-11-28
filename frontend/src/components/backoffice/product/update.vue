@@ -64,7 +64,7 @@
 
     methods: {
       getProduct () {
-        axios.get(`http://localhost:8080/product/${this.$route.params.product_id}`)
+        axios.get(`${this.$store.state.url}0/product/${this.$route.params.product_id}`)
           .then(response => {
             this.product = response.data[0]
             this.imageUrl = this.product.image
@@ -75,7 +75,7 @@
       },
 
       updateProduct: function () {
-        axios.put('http://localhost:8080/product/update', this.product)
+        axios.put(`${this.$store.state.url}/product/update`, this.product)
           .then(response => {
             location.reload()
           })
@@ -85,7 +85,7 @@
       },
 
       getCategories () {
-        axios.get(`http://localhost:8080/category/list/id&name`)
+        axios.get(`${this.$store.state.url}/category/list/id&name`)
           .then(response => {
             let categories = response.data
             categories.push({id: 0, name: 'Aucune catégorie'})
@@ -97,7 +97,7 @@
       },
 
       getCapacities () {
-        axios.get(`http://localhost:8080/capacity/list`)
+        axios.get(`${this.$store.state.url}/capacity/list`)
           .then(response => {
             let capacities = response.data
             this.capacities = capacities

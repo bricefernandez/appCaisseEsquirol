@@ -14,7 +14,8 @@ const store = new Vuex.Store({
     totalPrice: 0,
     productList: [],
     productIds: [],
-    payment: 'cb'
+    payment: 'cb',
+    url: 'http://192.168.1.15:8080'
   },
   mutations: {
     addProduct (state, product) {

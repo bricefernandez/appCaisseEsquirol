@@ -53,7 +53,7 @@
 
     methods: {
       getCategory () {
-        axios.get(`http://localhost:8080/category/${this.$route.params.category_id}`)
+        axios.get(`${this.$store.state.url}/category/${this.$route.params.category_id}`)
           .then(response => {
             this.category = response.data[0]
             this.imageUrl = this.category.image
@@ -64,7 +64,7 @@
       },
 
       updateCategory: function () {
-        axios.put('http://localhost:8080/category/update', this.category)
+        axios.put(`${this.$store.state.url}/category/update`, this.category)
           .then(response => {
             location.reload()
           })
@@ -77,7 +77,7 @@
         if (event === 0) {
           this.category.level = 0
         } else {
-          axios.get(`http://localhost:8080/category/` + event)
+          axios.get(`${this.$store.state.url}/category/` + event)
             .then(response => {
               let cat = response.data
               this.category.level = parseInt(cat[0].level) + 1
@@ -89,7 +89,7 @@
       },
 
       getParents () {
-        axios.get(`http://localhost:8080/category/list/id&name&level`)
+        axios.get(`${this.$store.state.url}/category/list/id&name&level`)
           .then(response => {
             let categories = response.data
             categories.push({id: 0, name: 'Aucun parent'})

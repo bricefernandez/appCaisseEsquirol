@@ -61,7 +61,7 @@
 
     methods: {
       addCategory: function () {
-        axios.post('http://localhost:8080/category/create', this.category)
+        axios.post(`${this.$store.state.url}/category/create`, this.category)
           .then(response => {
             location.reload()
           })
@@ -70,30 +70,11 @@
           })
       },
 
-//      getCategory () {
-//        console.log('ready')
-//        if (this.$route.params.categoryId !== 'undefined') {
-//          axios.get(`http://localhost:8080/category/` + this.$route.params.categoryId)
-//            .then(response => {
-//              console.log('into request returning object')
-//              return {
-//                name: response.data.name,
-//                level: response.data.level,
-//                image: response.data.image,
-//                parent: response.data.parent
-//              }
-//            })
-//            .catch(e => {
-//              console.log(e)
-//            })
-//        }
-//      },
-
       selectParent: function (event) {
         if (event === 0) {
           this.category.level = 0
         } else {
-          axios.get(`http://localhost:8080/category/` + event)
+          axios.get(`${this.$store.state.url}/category/` + event)
             .then(response => {
               let cat = response.data
               this.category.level = parseInt(cat[0].level) + 1
@@ -105,7 +86,7 @@
       },
 
       getParents () {
-        axios.get(`http://localhost:8080/category/list/id&name&level`)
+        axios.get(`${this.$store.state.url}/category/list/id&name&level`)
           .then(response => {
             let categories = response.data
             categories.push({id: 0, name: 'Aucun parent'})

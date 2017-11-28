@@ -70,7 +70,7 @@
 
     methods: {
       addProduct: function () {
-        axios.post('http://localhost:8080/product/create', this.product)
+        axios.post(`${this.$store.state.url}/product/create`, this.product)
           .then(response => {
             location.reload()
           })
@@ -80,7 +80,7 @@
       },
 
       getCategories () {
-        axios.get(`http://localhost:8080/category/list/id&name`)
+        axios.get(`${this.$store.state.url}/category/list/id&name`)
           .then(response => {
             let categories = response.data
             categories.push({id: 0, name: 'Aucune catégorie'})
@@ -92,7 +92,7 @@
       },
 
       getCapacities () {
-        axios.get(`http://localhost:8080/capacity/list`)
+        axios.get(`${this.$store.state.url}/capacity/list`)
           .then(response => {
             let capacities = response.data
             this.capacities = capacities

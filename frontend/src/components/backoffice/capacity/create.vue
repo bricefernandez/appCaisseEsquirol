@@ -54,7 +54,7 @@
 
     methods: {
       addCapacity: function () {
-        axios.post('http://localhost:8080/capacity/create', this.capacity)
+        axios.post(`${this.$store.state.url}/capacity/create`, this.capacity)
           .then(response => {
             location.reload()
           })

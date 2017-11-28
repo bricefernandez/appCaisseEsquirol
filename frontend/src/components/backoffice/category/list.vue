@@ -71,7 +71,7 @@
 
     methods: {
       fetchCategoryData: function () {
-        axios.get(`http://localhost:8080/category/list`)
+        axios.get(`${this.$store.state.url}/category/list`)
           .then(response => {
             this.categories = response.data
             this.originalCategories = this.categories
@@ -82,7 +82,7 @@
       },
 
       deleteCategory: function (index, rows) {
-        axios.delete('http://localhost:8080/category/' + rows[index].id + '/delete')
+        axios.delete(`${this.$store.state.url}/category/` + rows[index].id + '/delete')
           .then((response) => {
           })
           .catch(function (error) {
