@@ -3,9 +3,7 @@
     <el-menu class="el-menu-demo" mode="horizontal" :default-active="activeLink" :router="true">
       <el-menu-item index="backoffice" route="/backoffice">Back Office</el-menu-item>
       <el-menu-item index="caisse" route="/caisse">Caisse</el-menu-item>
-      <el-menu-item index="conditionnement" route="/conditionnement">Conditionnement</el-menu-item>
-      <el-menu-item index="culture" route="/culture">Culture</el-menu-item>
-      <el-menu-item index="apports" route="/apports">Apports</el-menu-item>
+      <el-menu-item index="stats" route="/stats">Stats</el-menu-item>
     </el-menu>
     <router-view></router-view>
   </div>
