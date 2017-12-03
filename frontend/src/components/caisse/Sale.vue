@@ -1,8 +1,8 @@
 <template>
     <el-container>
-        <el-header>
-            <div class="caisseTitle">Vente</div>
-        </el-header>
+        <!--<el-header>-->
+            <!--<div class="caisseTitle">Vente</div>-->
+        <!--</el-header>-->
         <el-main class="Container">
             <el-row class="ProductsList">
                 <el-col :span="24" class="RowContainer">
@@ -15,8 +15,7 @@
                     <el-col :span="13">{{ item.name }}</el-col>
                     <el-col :span="5">{{ item.price }} €</el-col>
                     <el-col :span="4">{{ item.quantity }}</el-col>
-                    <el-col :span="2"><i v-on:click="removeProduct(item, $event)" class="el-icon-close iconRed"></i>
-                    </el-col>
+                    <el-col :span="2"><i v-on:click="removeProduct(item, $event)" class="el-icon-close iconRed"></i></el-col>
                 </el-col>
             </el-row>
         </el-main>
@@ -62,10 +61,12 @@
     .RowContainer {
         margin-top: 5px;
         margin-bottom: 5px;
+        padding-bottom: 5px;
+        border-bottom: groove 1px grey;
     }
 
     .HeaderText {
-        font-size: 18px;
+        font-size: 14px;
         font-weight: bold;
     }
 

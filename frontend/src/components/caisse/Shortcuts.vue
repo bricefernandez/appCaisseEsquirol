@@ -1,18 +1,70 @@
 <template>
     <el-container>
-        <el-header><div class="caisseTitle">Raccourcis</div></el-header>
         <el-main>
-
+            <el-row class="Shortcuts">
+                <el-col class="ShortcutsContainer" :span="24" v-for="shortcut in shortcuts">
+                    <div v-on:click="addProduct(shortcut)">
+                        {{ shortcut.name }}
+                    </div>
+                </el-col>
+            </el-row>
         </el-main>
     </el-container>
 </template>
 
 <script>
+  import axios from 'axios'
+  import ElRow from 'element-ui/packages/row/src/row'
+
   export default {
-    name: 'shortcuts'
+    components: {ElRow},
+    name: 'products',
+    data () {
+      return {
+        shortcuts: this.getShortCuts()
+      }
+    },
+    methods: {
+
+      getShortCuts () {
+        axios.get(`${this.$store.state.url}/sale/shortcuts`)
+          .then(response => {
+            console.log(response.data)
+            this.shortcuts = response.data
+          })
+          .catch(e => {
+            this.errors.push(e)
+          })
+      },
+
+      addProduct (item) {
+        let itemIndex = this.findIndex(item)
+        if (itemIndex !== -1) {
+          this.$store.commit('addQuantity', itemIndex)
+          this.$store.commit('hackUpdate')
+        } else {
+          item.quantity = 1
+          this.$store.commit('addProduct', item)
+        }
+      },
+
+      findIndex (item) {
+        let index = this.$store.state.productList.findIndex(x => x.id === item.id)
+        return index
+      }
+    }
   }
 </script>
 
-<style>
+<style scoped>
+    .Shortcuts {
+        margin-left: 10px;
+    }
 
+    .ShortcutsContainer {
+        border: solid 1px;
+        border-radius: 10px;
+        padding: 5px;
+        margin-bottom: 10px;
+    }
 </style>

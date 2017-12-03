@@ -12,10 +12,11 @@ import Vuex from 'vuex'
 const store = new Vuex.Store({
   state: {
     totalPrice: 0,
+    totalDiscounted: 0,
     productList: [],
     productIds: [],
     payment: 'cb',
-    url: 'http://192.168.1.15:8080'
+    url: 'http://192.168.1.55:8080'
   },
   mutations: {
     addProduct (state, product) {
@@ -42,6 +43,10 @@ const store = new Vuex.Store({
     hackUpdate (state) {
       state.productList.push({})
       state.productList.pop()
+    },
+    setDiscountedTotal (state, price) {
+      console.log('price into state = ' + price)
+      state.totalDiscounted = price
     }
   }
 })

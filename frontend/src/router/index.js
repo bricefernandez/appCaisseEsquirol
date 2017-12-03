@@ -34,6 +34,7 @@ import Total from '@/components/caisse/Total'
 
 // Stats
 import Stats from '@/components/stats/Stats'
+import ListSales from '@/components/stats/sales/list'
 
 Vue.use(Router)
 Vue.use(Element)
@@ -41,6 +42,16 @@ Vue.use(Vuex)
 
 export default new Router({
   routes: [
+    {
+      path: '/stats',
+      component: Stats,
+      children: [
+        {
+          path: '',
+          component: ListSales
+        }
+      ]
+    },
     {
       path: '/stats',
       component: Stats

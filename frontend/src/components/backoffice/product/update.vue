@@ -64,8 +64,10 @@
 
     methods: {
       getProduct () {
-        axios.get(`${this.$store.state.url}0/product/${this.$route.params.product_id}`)
+        console.log('getting product')
+        axios.get(`${this.$store.state.url}/product/${this.$route.params.product_id}`)
           .then(response => {
+            console.log(response.data[0])
             this.product = response.data[0]
             this.imageUrl = this.product.image
           })

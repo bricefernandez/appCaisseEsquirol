@@ -1,18 +1,14 @@
 <template>
     <el-container>
-        <el-header>
-            <el-row>
-                <el-col :span="20">
-                    <div class="caisseTitle">Produits</div>
-                </el-col>
-                <el-col :span="4">
-                    <div class="caisseTitle" v-on:click="backToPreviousCategory()"><i
-                            class="icon el-icon-arrow-left"></i></div>
-                </el-col>
-            </el-row>
-        </el-header>
         <el-main>
             <el-row class="ProductsList">
+                <el-row>
+                    <el-col :span="4" :offset="20">
+                        <div v-on:click="backToPreviousCategory()">
+                            <icon name="undo" scale="2"></icon>
+                        </div>
+                    </el-col>
+                </el-row>
                 <el-col class="ProductsContainer" :span="6" v-for="item in items">
                     <div v-on:click="clickProduct(item, $event)">
                         <img class="ProductsImg" :src="`static/images${item.image}`"/>
@@ -27,14 +23,22 @@
 <script>
   import axios from 'axios'
   import ElRow from 'element-ui/packages/row/src/row'
+  import ElCol from 'element-ui/packages/col/src/col'
 
   export default {
-    components: {ElRow},
+    components: {
+      ElCol,
+      ElRow},
     name: 'products',
     data () {
       return {
         items: this.getSubCategoriesOrProducts(0),
         isProduct: false
+      }
+    },
+    events: {
+      backToCategories: function () {
+        this.getSubCategoriesOrProducts(0)
       }
     },
     methods: {
@@ -98,17 +102,17 @@
 
 <style>
     .ProductsImg {
-        height: 120px;
+        height: 100px;
         max-width: 100%;
     }
 
     .ProductsContainer {
-        height: 160px;
+        height: 140px;
     }
 
     .ProductsList {
-        max-height: 500px;
-        min-height: 500px;
+        max-height: 475px;
+        min-height: 475px;
         overflow: scroll;
     }
 </style>
