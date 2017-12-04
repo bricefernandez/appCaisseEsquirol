@@ -5,18 +5,18 @@
         <!--</el-header>-->
         <el-main class="Container">
             <el-row class="ProductsList">
-                <el-col :span="24" class="RowContainer">
-                    <el-col class="HeaderText" :span="13">Produit</el-col>
-                    <el-col class="HeaderText" :span="5">Prix</el-col>
-                    <el-col class="HeaderText" :span="4">Qté</el-col>
-                    <el-col class="HeaderText" :span="2"></el-col>
-                </el-col>
-                <el-col :span="24" v-for="item in items" class="RowContainer">
-                    <el-col :span="13">{{ item.name }}</el-col>
-                    <el-col :span="5">{{ item.price }} €</el-col>
-                    <el-col :span="4">{{ item.quantity }}</el-col>
-                    <el-col :span="2"><i v-on:click="removeProduct(item, $event)" class="el-icon-close iconRed"></i></el-col>
-                </el-col>
+                <el-row class="RowContainer" :gutter="2">
+                    <el-col class="HeaderText" :span="10">Produit</el-col>
+                    <el-col class="HeaderText" :span="6">Prix</el-col>
+                    <el-col class="HeaderText" :span="5">Qté</el-col>
+                    <el-col class="HeaderText" :span="3"></el-col>
+                </el-row>
+                <el-row v-for="item in items" class="RowContainer" :gutter="3">
+                    <el-col :span="10" class="ListElement">{{ item.name }}</el-col>
+                    <el-col :span="6"><el-input v-model="item.price" @change="setPrice(item, $event)"></el-input></el-col>
+                    <el-col :span="5"><el-input v-model="item.quantity" @change="setQuantity(item, $event)"></el-input></el-col>
+                    <el-col :span="3" class="ListElement"><i v-on:click="removeProduct(item, $event)" class="el-icon-close iconRed"></i></el-col>
+                </el-row>
             </el-row>
         </el-main>
     </el-container>
@@ -24,9 +24,12 @@
 
 <script>
   import ElRow from 'element-ui/packages/row/src/row'
+  import ElInput from '../../../node_modules/element-ui/packages/input/src/input.vue'
 
   export default {
-    components: {ElRow},
+    components: {
+      ElInput,
+      ElRow},
     name: 'sale',
     computed: {
       items () {
@@ -42,6 +45,20 @@
         } else {
           this.$store.commit('removeQuantity', itemIndex)
           this.$store.commit('hackUpdate')
+        }
+      },
+
+      setPrice (item, event) {
+        if (event !== '') {
+          let itemIndex = this.findIndex(item)
+          this.$store.commit('setPrice', {index: itemIndex, price: parseFloat(event)})
+        }
+      },
+
+      setQuantity (item, event) {
+        if (event !== '') {
+          let itemIndex = this.findIndex(item)
+          this.$store.commit('setQuantity', {index: itemIndex, quantity: parseInt(event)})
         }
       },
 
@@ -72,5 +89,13 @@
 
     .iconRed {
         color: red;
+    }
+
+    .ListElement {
+        margin-top: 6px;
+    }
+
+    .el-input__inner {
+        height: 25px !important;
     }
 </style>

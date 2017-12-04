@@ -33,9 +33,19 @@ const store = new Vuex.Store({
       state.productList[index].quantity ++
       state.totalPrice += state.productList[index].price
     },
+    setQuantity (state, data) {
+      let oldQuantity = state.productList[data.index].quantity
+      state.productList[data.index].quantity = data.quantity
+      state.totalPrice += state.productList[data.index].price * (data.quantity - oldQuantity)
+    },
     removeQuantity (state, index) {
       state.productList[index].quantity --
       state.totalPrice -= state.productList[index].price
+    },
+    setPrice (state, data) {
+      let oldPrice = state.productList[data.index].price
+      state.productList[data.index].price = data.price
+      state.totalPrice -= oldPrice - data.price
     },
     updatePayment (state, payment) {
       state.payment = payment
@@ -45,7 +55,6 @@ const store = new Vuex.Store({
       state.productList.pop()
     },
     setDiscountedTotal (state, price) {
-      console.log('price into state = ' + price)
       state.totalDiscounted = price
     }
   }
