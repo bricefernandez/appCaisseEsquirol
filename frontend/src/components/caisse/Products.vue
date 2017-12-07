@@ -1,6 +1,6 @@
 <template>
-    <el-container>
-        <el-main>
+    <div>
+        <div>
             <el-row class="ProductsList">
                 <el-row>
                     <el-col :span="4" :offset="20">
@@ -9,15 +9,15 @@
                         </div>
                     </el-col>
                 </el-row>
-                <el-col class="ProductsContainer" :span="6" v-for="item in items">
+                <el-col class="ProductsContainer" :span="6" v-for="item in items" v-bind:data="item" :key="item.id">
                     <div v-on:click="clickProduct(item, $event)">
                         <img class="ProductsImg" :src="`static/images${item.image}`"/>
                         <div>{{ item.name }}</div>
                     </div>
                 </el-col>
             </el-row>
-        </el-main>
-    </el-container>
+        </div>
+    </div>
 </template>
 
 <script>

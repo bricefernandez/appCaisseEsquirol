@@ -20,8 +20,8 @@
                     <router-view name="total"></router-view>
                 </el-col>
                 <el-col :span="2">
-                    <el-container>
-                        <el-main class="Container">
+                    <div>
+                        <div class="Container">
                             <el-col :span="24">
                                 <router-link to="/caisse" target="_blank">
                                     <icon class="IconNewUser" name="user-plus" scale="2"></icon>
@@ -32,19 +32,19 @@
                                     <icon class="IconNewUser" name="backward"></icon>
                                 </router-link>
                             </el-col>
-                        </el-main>
-                    </el-container>
+                        </div>
+                    </div>
                 </el-col>
                 <el-col :span="4">
-                    <el-container>
-                        <el-main class="Container">
+                    <div>
+                        <div class="Container">
                             <el-col :span="24">
                                 <el-button class="ValidIcon" v-on:click="validSale">
                                     <icon name="check" scale="3"></icon>
                                 </el-button>
                             </el-col>
-                        </el-main>
-                    </el-container>
+                        </div>
+                    </div>
                 </el-col>
             </el-row>
         </el-col>

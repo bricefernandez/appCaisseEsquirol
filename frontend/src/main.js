@@ -16,7 +16,7 @@ const store = new Vuex.Store({
     productList: [],
     productIds: [],
     payment: 'cb',
-    url: 'http://192.168.1.55:8080'
+    url: 'http://api.caissemoulinesquirol.ovh/'
   },
   mutations: {
     addProduct (state, product) {

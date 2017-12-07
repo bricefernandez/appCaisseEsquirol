@@ -24,14 +24,12 @@
                     </el-table-column>
                     <el-table-column
                             label="Actions">
-                        <template scope="scope">
-                            <el-button
-                                    @click.native.prevent="deleteCapacity(scope.$index, capacities)"
-                                    type="text"
-                                    size="small">
-                                Suppr.
-                            </el-button>
-                        </template>
+                      <el-button
+                              @click.native.prevent="deleteCapacity(scope.$index, capacities)"
+                              type="text"
+                              size="small">
+                          Suppr.
+                      </el-button>
                     </el-table-column>
                 </el-table>
             </el-col>

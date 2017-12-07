@@ -1,15 +1,15 @@
 <template>
-    <el-container>
-        <el-main>
+    <div>
+        <div>
             <el-row class="Shortcuts">
-                <el-col class="ShortcutsContainer" :span="24" v-for="shortcut in shortcuts">
+                <el-col class="ShortcutsContainer" :span="24" v-for="shortcut in shortcuts" v-bind:data="shortcut" :key="shortcut.id">
                     <div v-on:click="addProduct(shortcut)">
                         {{ shortcut.name }}
                     </div>
                 </el-col>
             </el-row>
-        </el-main>
-    </el-container>
+        </div>
+    </div>
 </template>
 
 <script>

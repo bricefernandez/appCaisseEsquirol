@@ -1,9 +1,9 @@
 <template>
-    <el-container>
+    <div>
         <!--<el-header>-->
             <!--<div class="caisseTitle">Total</div>-->
         <!--</el-header>-->
-        <el-main>
+        <div>
             <el-row class="TotalContainer">
                 <el-col class="TotalTitle" :span="12">Total :</el-col>
                 <el-col class="TotalValue" :span="12">{{ $store.state.totalPrice }} €</el-col>
@@ -11,13 +11,9 @@
                 <el-col class="TotalValue" :span="12">{{ totalDiscounted }} €</el-col>
                 <el-col class="TotalTitle" :span="16">Remise (%) :</el-col>
                 <el-col class="TotalValue" :span="8"><el-input v-on:change="changeRemise">{{ remise }}</el-input></el-col>
-                <!--<el-col class="TotalTitle" :span="14">Paiement :</el-col>-->
-                <!--<el-col class="TotalValue" :span="10"><el-input type="numeric" v-on:change="changeRendu">{{ payment }}</el-input></el-col>-->
-                <!--<el-col class="TotalTitle" :span="12">Rendu :</el-col>-->
-                <!--<el-col class="TotalValue" :span="12">{{ rendu }} €</el-col>-->
             </el-row>
-        </el-main>
-    </el-container>
+        </div>
+    </div>
 </template>
 <script>
   import ElRow from 'element-ui/packages/row/src/row'

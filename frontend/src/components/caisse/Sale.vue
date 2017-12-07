@@ -1,9 +1,9 @@
 <template>
-    <el-container>
+    <div>
         <!--<el-header>-->
             <!--<div class="caisseTitle">Vente</div>-->
         <!--</el-header>-->
-        <el-main class="Container">
+        <div class="Container">
             <el-row class="ProductsList">
                 <el-row class="RowContainer" :gutter="2">
                     <el-col class="HeaderText" :span="10">Produit</el-col>
@@ -11,15 +11,15 @@
                     <el-col class="HeaderText" :span="5">Qté</el-col>
                     <el-col class="HeaderText" :span="3"></el-col>
                 </el-row>
-                <el-row v-for="item in items" class="RowContainer" :gutter="3">
+                <el-row v-for="item in items" class="RowContainer" :gutter="3" v-bind:data="item" :key="item.id">
                     <el-col :span="10" class="ListElement">{{ item.name }}</el-col>
                     <el-col :span="6"><el-input v-model="item.price" @change="setPrice(item, $event)"></el-input></el-col>
                     <el-col :span="5"><el-input v-model="item.quantity" @change="setQuantity(item, $event)"></el-input></el-col>
                     <el-col :span="3" class="ListElement"><i v-on:click="removeProduct(item, $event)" class="el-icon-close iconRed"></i></el-col>
                 </el-row>
             </el-row>
-        </el-main>
-    </el-container>
+        </div>
+    </div>
 </template>
 
 <script>

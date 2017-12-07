@@ -1,9 +1,9 @@
 <template>
-    <el-container>
+    <div>
         <!--<el-header>-->
             <!--<div class="caisseTitle">Modes de paiement</div>-->
         <!--</el-header>-->
-        <el-main>
+        <div>
             <div class="PaymentsContainer">
                 <el-radio-group v-model="$store.state.payment" @change="activatedThis($event)">
                     <el-radio-button class="PaymentMethod" label="cb"><icon id="cb" class="bigIcon" v-bind:class="{ 'colorBlue': icons['cb'] }" name="credit-card"></icon></el-radio-button>
@@ -12,8 +12,8 @@
                     <el-radio-button class="PaymentMethod" label="virement"><icon id="virement" class="bigIcon" v-bind:class="{ 'colorBlue': icons['virement'] }"  name="exchange"></icon></el-radio-button>
                 </el-radio-group>
             </div>
-        </el-main>
-    </el-container>
+        </div>
+    </div>
 </template>
 
 <script>
