@@ -7,10 +7,10 @@
             <el-row class="TotalContainer">
                 <el-col class="TotalTitle" :span="12">Total :</el-col>
                 <el-col class="TotalValue" :span="12">{{ $store.state.totalPrice }} €</el-col>
-                <el-col class="TotalTitle" :span="12">Total remisé :</el-col>
-                <el-col class="TotalValue" :span="12">{{ totalDiscounted }} €</el-col>
+                <el-col class="TotalTitle" :span="12">Total avant remise :</el-col>
+                <el-col class="TotalValue" :span="12">{{ $store.state.totalBeforeDiscount }} €</el-col>
                 <el-col class="TotalTitle" :span="16">Remise (%) :</el-col>
-                <el-col class="TotalValue" :span="8"><el-input v-on:change="changeRemise">{{ remise }}</el-input></el-col>
+                <el-col class="TotalValue" :span="8"><el-input v-on:change="changeDiscount">{{ $store.state.discount }}</el-input></el-col>
             </el-row>
         </div>
     </div>
@@ -26,23 +26,14 @@
       ElCol,
       ElRow},
     name: 'total',
-    data () {
-      return {
-//        payment: 0,
-        remise: 0,
-        totalDiscounted: '-'
-//        rendu: 0
-      }
-    },
     methods: {
-      changeRemise (event) {
-        if (event !== 0) {
-          this.totalDiscounted = (this.$store.state.totalPrice * (1 - event / 100)).toFixed(2)
-          this.$store.commit('setDiscountedTotal', parseFloat(this.totalDiscounted))
+      changeDiscount (event) {
+        if (event !== 0 && event !== '') {
+          this.$store.commit('setDiscount', parseFloat(event))
         } else {
-          this.totalDiscounted = '-'
-          this.$store.commit('setDiscountedTotal', 0)
+          this.$store.commit('setDiscount', 0)
         }
+        this.$store.commit('calculateTotal')
       }
     }
   }

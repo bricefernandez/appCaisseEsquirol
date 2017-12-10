@@ -52,6 +52,7 @@
         if (event !== '') {
           let itemIndex = this.findIndex(item)
           this.$store.commit('setPrice', {index: itemIndex, price: parseFloat(event)})
+          this.$store.commit('calculateTotal')
         }
       },
 
@@ -59,6 +60,7 @@
         if (event !== '') {
           let itemIndex = this.findIndex(item)
           this.$store.commit('setQuantity', {index: itemIndex, quantity: parseInt(event)})
+          this.$store.commit('calculateTotal')
         }
       },
 

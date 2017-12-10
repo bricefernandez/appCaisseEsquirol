@@ -29,7 +29,6 @@
       getShortCuts () {
         axios.get(`${this.$store.state.url}/sale/shortcuts`)
           .then(response => {
-            console.log(response.data)
             this.shortcuts = response.data
           })
           .catch(e => {

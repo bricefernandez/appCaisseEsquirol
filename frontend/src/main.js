@@ -13,7 +13,8 @@ import Vuex from 'vuex'
 const store = new Vuex.Store({
   state: {
     totalPrice: 0,
-    totalDiscounted: 0,
+    discount: 0,
+    totalBeforeDiscount: 0,
     productList: [],
     productIds: [],
     payment: 'cb',
@@ -55,8 +56,19 @@ const store = new Vuex.Store({
       state.productList.push({})
       state.productList.pop()
     },
-    setDiscountedTotal (state, price) {
-      state.totalDiscounted = price
+    setDiscount (state, discount) {
+      state.discount = discount
+    },
+    calculateTotal (state) {
+      let total = 0
+      for (let i = 0; i < state.productList.length; i++) {
+        total += state.productList[i].price * state.productList[i].quantity
+      }
+      state.totalBeforeDiscount = total.toFixed(2)
+      if (state.discountTotal !== 0) {
+        total = total * (1 - state.discount / 100)
+      }
+      state.totalPrice = total.toFixed(2)
     }
   }
 })

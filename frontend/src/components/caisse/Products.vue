@@ -86,6 +86,7 @@
         } else {
           this.getSubCategoriesOrProducts(item.id)
         }
+        this.$store.commit('calculateTotal')
       },
 
       backToPreviousCategory (event) {
