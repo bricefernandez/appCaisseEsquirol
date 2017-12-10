@@ -46,6 +46,7 @@
           this.$store.commit('removeQuantity', itemIndex)
           this.$store.commit('hackUpdate')
         }
+        this.$store.commit('calculateTotal')
       },
 
       setPrice (item, event) {

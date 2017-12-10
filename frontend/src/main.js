@@ -24,30 +24,22 @@ const store = new Vuex.Store({
     addProduct (state, product) {
       state.productList.push(product)
       state.productIds.push(product.id)
-      state.totalPrice += product.price
     },
     removeProduct (state, index) {
-      state.totalPrice -= state.productList[index].price
       state.productList.splice(index, 1)
       state.productIds.splice(index, 1)
     },
     addQuantity (state, index) {
       state.productList[index].quantity ++
-      state.totalPrice += state.productList[index].price
     },
     setQuantity (state, data) {
-      let oldQuantity = state.productList[data.index].quantity
       state.productList[data.index].quantity = data.quantity
-      state.totalPrice += state.productList[data.index].price * (data.quantity - oldQuantity)
     },
     removeQuantity (state, index) {
       state.productList[index].quantity --
-      state.totalPrice -= state.productList[index].price
     },
     setPrice (state, data) {
-      let oldPrice = state.productList[data.index].price
       state.productList[data.index].price = data.price
-      state.totalPrice -= oldPrice - data.price
     },
     updatePayment (state, payment) {
       state.payment = payment

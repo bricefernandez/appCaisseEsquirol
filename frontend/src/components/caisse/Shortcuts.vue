@@ -45,6 +45,7 @@
           item.quantity = 1
           this.$store.commit('addProduct', item)
         }
+        this.$store.commit('calculateTotal')
       },
 
       findIndex (item) {
