@@ -17,8 +17,6 @@
 </template>
 
 <script>
-  import 'vue-awesome/icons'
-
   export default {
     name: 'payments',
     data () {
