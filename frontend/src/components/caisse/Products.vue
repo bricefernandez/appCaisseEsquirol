@@ -1,27 +1,34 @@
 <template>
-    <el-container>
-        <el-header><h2 class="caisseTitle">Produits</h2></el-header>
-        <el-row class="ProductsList">
-            <el-col class="ProductsContainer" :span="6" v-for="item in items">
-                <div v-on:click="clickProduct(item, $event)">
-                    <img class="ProductsImg" :src="`static/images${item.image}`"/>
-                    <div>{{ item.name }}</div>
-                    <!--{{ item.id }}-->
-                    <!--{{ item.name }}-->
-                    <!--{{ item.level }}-->
-                    <!--{{ item.parent }}-->
-                </div>
-            </el-col>
-        </el-row>
-    </el-container>
+    <div>
+        <div>
+            <el-row class="ProductsList">
+                <el-row>
+                    <el-col :span="4" :offset="20">
+                        <div v-on:click="backToPreviousCategory()">
+                            <icon name="undo" scale="2"></icon>
+                        </div>
+                    </el-col>
+                </el-row>
+                <el-col class="ProductsContainer" :span="6" v-for="item in items" v-bind:data="item" :key="item.id">
+                    <div v-on:click="clickProduct(item, $event)">
+                        <img class="ProductsImg" :src="`static/images${item.image}`"/>
+                        <div>{{ item.name }}</div>
+                    </div>
+                </el-col>
+            </el-row>
+        </div>
+    </div>
 </template>
 
 <script>
   import axios from 'axios'
   import ElRow from 'element-ui/packages/row/src/row'
+  import ElCol from 'element-ui/packages/col/src/col'
 
   export default {
-    components: {ElRow},
+    components: {
+      ElCol,
+      ElRow},
     name: 'products',
     data () {
       return {
@@ -29,9 +36,15 @@
         isProduct: false
       }
     },
+    events: {
+      backToCategories: function () {
+        this.getSubCategoriesOrProducts(0)
+      }
+    },
     methods: {
+
       getSubCategoriesOrProducts (parent) {
-        axios.get(`http://localhost:8080/category/get?parent=${parent}`)
+        axios.get(`${this.$store.state.url}/category/get?parent=${parent}`)
           .then(response => {
             if (response.data.length > 0) {
               this.items = response.data
@@ -44,9 +57,9 @@
             this.errors.push(e)
           })
       },
+
       getProducts (categoryId) {
-        console.log('getting produc')
-        axios.get(`http://localhost:8080/product/get?CategoryId=${categoryId}`)
+        axios.get(`${this.$store.state.url}/product/get?CategoryId=${categoryId}`)
           .then(response => {
             this.items = response.data
             this.isProduct = true
@@ -55,16 +68,34 @@
             this.errors.push(e)
           })
       },
+
       addProduct (item) {
-        item.quantity = 1
-        this.$store.commit('addProduct', item)
+        let itemIndex = this.findIndex(item)
+        if (itemIndex !== -1) {
+          this.$store.commit('addQuantity', itemIndex)
+          this.$store.commit('hackUpdate')
+        } else {
+          item.quantity = 1
+          this.$store.commit('addProduct', item)
+        }
       },
+
       clickProduct (item, event) {
         if (this.isProduct === true) {
           this.addProduct(item)
         } else {
           this.getSubCategoriesOrProducts(item.id)
         }
+        this.$store.commit('calculateTotal')
+      },
+
+      backToPreviousCategory (event) {
+        this.getSubCategoriesOrProducts(0)
+      },
+
+      findIndex (item) {
+        let index = this.$store.state.productList.findIndex(x => x.id === item.id)
+        return index
       }
     }
   }
@@ -72,16 +103,17 @@
 
 <style>
     .ProductsImg {
-        height: 120px;
+        height: 100px;
         max-width: 100%;
     }
 
     .ProductsContainer {
-        height: 160px;
+        height: 140px;
     }
 
     .ProductsList {
-        max-height: 500px;
+        max-height: 475px;
+        min-height: 475px;
         overflow: scroll;
     }
 </style>

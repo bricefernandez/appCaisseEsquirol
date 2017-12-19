@@ -13,7 +13,7 @@
                 <el-submenu index="1">
                     <template slot="title">
                         <i class="el-icon-location"></i>
-                        <span><icon name="beer"></icon>Capacités</span>
+                        <span>Capacités</span>
                     </template>
                     <el-menu-item index="/backoffice/capacity" route="/backoffice/capacity"><i class="el-icon-information"></i> Lister les capacités</el-menu-item>
                     <el-menu-item index="/backoffice/capacity/create" route="/backoffice/capacity/create"><i class="el-icon-plus"></i> Créer une capacité</el-menu-item>

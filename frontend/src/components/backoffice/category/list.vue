@@ -29,27 +29,19 @@
                     <el-table-column
                             prop="image"
                             label="Image">
-                        <template slot-scope="scope">
-                            <img :src="'static/images/' + scope.row.image"/>
-                        </template>
+                      <img :src="'static/images/' + scope.row.image"/>
                     </el-table-column>
                     <el-table-column
                             label="Actions">
-                        <template scope="scope">
-                            <!--<router-link :to="{path: '/backoffice/category/create', params: {categoryId: scope.$index}}">-->
-                                <!--<el-button-->
-                                        <!--type="text"-->
-                                        <!--size="small">-->
-                                    <!--<i class="icon el-icon-edit"></i>-->
-                                <!--</el-button>-->
-                            <!--</router-link>-->
-                            <el-button
-                                    @click.native.prevent="deleteCategory(scope.$index, categories)"
-                                    type="text"
-                                    size="small">
-                                <i class="icon el-icon-delete"></i>
-                            </el-button>
-                        </template>
+                      <router-link :to="{ path: `category/update/${scope.row.id}`}" class="btn btn-primary">
+                          <i class="icon el-icon-edit"></i>
+                      </router-link>
+                      <el-button
+                              @click.native.prevent="deleteCategory(scope.$index, categories)"
+                              type="text"
+                              size="small">
+                          <i class="icon el-icon-delete"></i>
+                      </el-button>
                     </el-table-column>
                 </el-table>
             </el-col>
@@ -75,7 +67,7 @@
 
     methods: {
       fetchCategoryData: function () {
-        axios.get(`http://localhost:8080/category/list`)
+        axios.get(`${this.$store.state.url}/category/list`)
           .then(response => {
             this.categories = response.data
             this.originalCategories = this.categories
@@ -86,7 +78,7 @@
       },
 
       deleteCategory: function (index, rows) {
-        axios.delete('http://localhost:8080/category/' + rows[index].id + '/delete')
+        axios.delete(`${this.$store.state.url}/category/` + rows[index].id + '/delete')
           .then((response) => {
           })
           .catch(function (error) {

@@ -12,7 +12,8 @@
                         <el-input v-model="category.name"></el-input>
                     </el-form-item>
                     <el-form-item label="Catégorie parente">
-                        <el-select @change="selectParent" v-model="category.parent" placeholder="Selectionner un parent">
+                        <el-select @change="selectParent" v-model="category.parent"
+                                   placeholder="Selectionner un parent">
                             <el-option
                                     v-for="parent in parents"
                                     :key="parent.id"
@@ -26,10 +27,7 @@
                     </el-form-item>
                     <el-form-item label="Image">
                         <el-input v-model="category.image" @change="imageUpdate"></el-input>
-                        <img :src="imageUrl"/>
-                    </el-form-item>
-                    <el-form-item>
-                        <el-button type="primary" @click="addCategory">Créer</el-button>
+                        <img :src="`static/images/${imageUrl}`"/>
                     </el-form-item>
                     <el-form-item>
                         <el-button type="primary" @click="updateCategory">Modifier</el-button>
@@ -48,27 +46,29 @@
     data () {
       return {
         imageUrl: '',
-        category: {
-          name: '',
-          level: '',
-          image: '',
-          parent: ''
-        },
+        category: this.getCategory(),
         parents: this.getParents()
       }
     },
 
-    beforeCreate () {
-      console.log(this.$route.params)
-    },
-
     methods: {
-      addCategory: function () {
-        axios.post('http://localhost:8080/category/create', this.category)
+      getCategory () {
+        axios.get(`${this.$store.state.url}/category/${this.$route.params.category_id}`)
+          .then(response => {
+            this.category = response.data[0]
+            this.imageUrl = this.category.image
+          })
+          .catch(e => {
+            this.errors.push(e)
+          })
+      },
+
+      updateCategory: function () {
+        axios.put(`${this.$store.state.url}/category/update`, this.category)
           .then(response => {
             location.reload()
           })
-          .catch(error => {
+          .catch(function (error) {
             console.log(error)
           })
       },
@@ -77,31 +77,31 @@
         if (event === 0) {
           this.category.level = 0
         } else {
-          axios.get(`http://localhost:8080/category/` + event)
+          axios.get(`${this.$store.state.url}/category/` + event)
             .then(response => {
               let cat = response.data
               this.category.level = parseInt(cat[0].level) + 1
             })
             .catch(e => {
-              this.errors.push(e)
+              console.log(e)
             })
         }
       },
 
       getParents () {
-        axios.get(`http://localhost:8080/category/list/id&name&level`)
+        axios.get(`${this.$store.state.url}/category/list/id&name&level`)
           .then(response => {
             let categories = response.data
             categories.push({id: 0, name: 'Aucun parent'})
             this.parents = categories
           })
           .catch(e => {
-            this.errors.push(e)
+            console.log(e)
           })
       },
 
       imageUpdate (event) {
-        this.imageUrl = 'static/images/' + event
+        this.imageUrl = event
       }
     }
   }

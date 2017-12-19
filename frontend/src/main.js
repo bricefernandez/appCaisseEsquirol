@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import 'vue-awesome/icons'
+import Icon from 'vue-awesome/components/Icon'
 
 Vue.config.productionTip = false
 
@@ -11,9 +13,12 @@ import Vuex from 'vuex'
 const store = new Vuex.Store({
   state: {
     totalPrice: 0,
+    discount: 0,
+    totalBeforeDiscount: 0,
     productList: [],
     productIds: [],
-    payment: ''
+    payment: 'cb',
+    url: 'http://api.caissemoulinesquirol.ovh/'
   },
   mutations: {
     addProduct (state, product) {
@@ -27,11 +32,41 @@ const store = new Vuex.Store({
     addQuantity (state, index) {
       state.productList[index].quantity ++
     },
+    setQuantity (state, data) {
+      state.productList[data.index].quantity = data.quantity
+    },
     removeQuantity (state, index) {
       state.productList[index].quantity --
+    },
+    setPrice (state, data) {
+      state.productList[data.index].price = data.price
+    },
+    updatePayment (state, payment) {
+      state.payment = payment
+    },
+    hackUpdate (state) {
+      state.productList.push({})
+      state.productList.pop()
+    },
+    setDiscount (state, discount) {
+      state.discount = discount
+    },
+    calculateTotal (state) {
+      let total = 0
+      for (let i = 0; i < state.productList.length; i++) {
+        total += state.productList[i].price * state.productList[i].quantity
+      }
+      state.totalBeforeDiscount = total.toFixed(2)
+      if (state.discountTotal !== 0) {
+        total = total * (1 - state.discount / 100)
+      }
+      state.totalPrice = total.toFixed(2)
     }
   }
 })
+
+// globally (in your main .js file)
+Vue.component('icon', Icon)
 
 /* eslint-disable no-new */
 new Vue({

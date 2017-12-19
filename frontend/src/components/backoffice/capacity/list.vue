@@ -24,14 +24,12 @@
                     </el-table-column>
                     <el-table-column
                             label="Actions">
-                        <template scope="scope">
-                            <el-button
-                                    @click.native.prevent="deleteCapacity(scope.$index, capacities)"
-                                    type="text"
-                                    size="small">
-                                Suppr.
-                            </el-button>
-                        </template>
+                      <el-button
+                              @click.native.prevent="deleteCapacity(scope.$index, capacities)"
+                              type="text"
+                              size="small">
+                          Suppr.
+                      </el-button>
                     </el-table-column>
                 </el-table>
             </el-col>
@@ -55,7 +53,7 @@
 
     methods: {
       fetchCapacityData: function () {
-        axios.get(`http://localhost:8080/capacity/list`)
+        axios.get(`${this.$store.state.url}/capacity/list`)
           .then(response => {
             this.capacities = response.data
           })
@@ -65,7 +63,7 @@
       },
 
       deleteCapacity: function (index, rows) {
-        axios.delete('http://localhost:8080/capacity/' + rows[index].id + '/delete')
+        axios.delete(`${this.$store.state.url}/capacity/` + rows[index].id + '/delete')
           .then((response) => {
           })
           .catch(function (error) {

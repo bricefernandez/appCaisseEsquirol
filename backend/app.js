@@ -9,14 +9,13 @@ var routes = require('./routes/index');
 var category  = require('./routes/category');
 var product  = require('./routes/product');
 var capacity  = require('./routes/capacity');
+var sale  = require('./routes/sale');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
-console.log("coucou")
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -28,9 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.all('/*', function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
-        //res.header("Access-Control-Allow-Headers", "X-Requested-With");
         res.header("Access-Control-Allow-Headers", "Content-Type,Authorization");
-        res.header("Access-Control-Allow-Methods", "GET, POST", "PUT");
+        res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
         next();
 
     });
@@ -39,9 +37,7 @@ app.use('/', routes);
 app.use('/category', category);
 app.use('/product', product);
 app.use('/capacity', capacity);
-
-
-
+app.use('/sale', sale);
 
 // error handler
 // no stacktraces leaked to user unless in development environment

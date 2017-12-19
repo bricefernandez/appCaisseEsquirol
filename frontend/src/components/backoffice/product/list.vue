@@ -33,20 +33,19 @@
                     <el-table-column
                             prop="image"
                             label="Image">
-                        <template slot-scope="scope">
-                            <img :src="'static/images/' + scope.row.image"/>
-                        </template>
+                      <img :src="'static/images/' + scope.row.image"/>
                     </el-table-column>
                     <el-table-column
                             label="Actions">
-                        <template scope="scope">
-                            <el-button
-                                    @click.native.prevent="deleteProduct(scope.$index, products)"
-                                    type="text"
-                                    size="small">
-                                Suppr.
-                            </el-button>
-                        </template>
+                      <router-link :to="{ path: `product/update/${scope.row.id}`}" class="btn btn-primary">
+                          <i class="icon el-icon-edit"></i>
+                      </router-link>
+                      <el-button
+                              @click.native.prevent="deleteProduct(scope.$index, products)"
+                              type="text"
+                              size="small">
+                          <i class="icon el-icon-delete"></i>
+                      </el-button>
                     </el-table-column>
                 </el-table>
             </el-col>
@@ -72,7 +71,7 @@
 
     methods: {
       fetchProductData: function () {
-        axios.get(`http://localhost:8080/product/list`)
+        axios.get(`${this.$store.state.url}/product/list`)
           .then(response => {
             this.products = response.data
             this.originalProducts = this.categories
@@ -83,7 +82,7 @@
       },
 
       deleteProduct: function (index, rows) {
-        axios.delete('http://localhost:8080/product/' + rows[index].id + '/delete')
+        axios.delete(`${this.$store.state.url}/product/${rows[index].id}/delete`)
           .then((response) => {
           })
           .catch(function (error) {

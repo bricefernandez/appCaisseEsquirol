@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        SaleProduct.belongsTo(models.Products, {foreignKey: 'ProductId'})
+        SaleProduct.belongsTo(models.Sale, {foreignKey: 'SaleId'})
       }
     }
   });
