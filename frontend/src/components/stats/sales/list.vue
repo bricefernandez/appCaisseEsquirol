@@ -17,7 +17,7 @@
                     Liste des produits
                   </el-col>
                 </el-row>
-                <el-row class="SecondRow" v-for="sale in sales">
+                <el-row class="SecondRow" v-for="sale in sales" v-bind:data="sale" v-bind:key="sale.id">
                     <el-col :span="4">
                         {{ sale.id }}
                     </el-col>
