@@ -63,12 +63,8 @@
     name: 'caisse',
     methods: {
       validSale (event) {
-        let totalPrice = this.$store.state.totalPrice
-        if (this.$store.state.totalDiscounted !== 0) {
-          totalPrice = this.$store.state.totalDiscounted
-        }
         let sale = {
-          totalPrice: totalPrice,
+          totalPrice: this.$store.state.totalPrice,
           payment: this.$store.state.payment
         }
         axios.post(`${this.$store.state.url}/sale/create`, sale)

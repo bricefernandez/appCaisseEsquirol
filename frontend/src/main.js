@@ -19,6 +19,7 @@ const store = new Vuex.Store({
     productIds: [],
     payment: 'cb',
     url: 'http://api.caissemoulinesquirol.ovh/'
+    // url: 'http://localhost:8080'
   },
   mutations: {
     addProduct (state, product) {
@@ -56,11 +57,11 @@ const store = new Vuex.Store({
       for (let i = 0; i < state.productList.length; i++) {
         total += state.productList[i].price * state.productList[i].quantity
       }
-      state.totalBeforeDiscount = total.toFixed(2)
+      state.totalBeforeDiscount = parseFloat(total.toFixed(2))
       if (state.discountTotal !== 0) {
         total = total * (1 - state.discount / 100)
       }
-      state.totalPrice = total.toFixed(2)
+      state.totalPrice = parseFloat(total.toFixed(2))
     }
   }
 })
