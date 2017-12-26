@@ -6,8 +6,6 @@
                     :router="true"
                     :default-active="$route.path"
                     class="el-menu-vertical-demo"
-                    @open="handleOpen"
-                    @close="handleClose"
                     background-color="#FFF"
                     default-openeds="[1, 2, 3]">
                 <el-submenu index="1">
