@@ -17,18 +17,18 @@
                     Liste des produits
                   </el-col>
                 </el-row>
-                <el-row class="SecondRow" v-for="sale in sales">
+                <el-row class="SecondRow" v-for="sale in sales" v-bind:data="sale" v-bind:key="sale.id">
                     <el-col :span="4">
                         {{ sale.id }}
                     </el-col>
                     <el-col :span="4">
-                       {{ sale.date }}
+                       {{ formatDate(sale.date) }}
                     </el-col>
                     <el-col :span="4">
                        {{ sale.totalPrice }} €
                     </el-col>
                     <el-col :span="12">
-                        <div v-for="product in sale.SaleProducts">
+                        <div class="ProductRow" v-for="product in sale.SaleProducts">
                             <div>{{ product.Product.name }} x{{ product.quantity }}</div>
                         </div>
                     </el-col>
@@ -61,6 +61,11 @@
           .catch(e => {
             this.errors.push(e)
           })
+      },
+
+      formatDate (date) {
+        let formatDate = new Date(date)
+        return (formatDate.getDate() + '/' + (formatDate.getMonth() + 1) + '/' + formatDate.getFullYear())
       }
     }
   }
@@ -76,6 +81,11 @@
 
   .SecondRow {
     padding: 10px;
+    border-bottom: solid 1px lightgrey;
+  }
+
+  .ProductRow {
+    padding: 5px;
   }
 
 </style>

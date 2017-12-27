@@ -33,19 +33,23 @@
                     <el-table-column
                             prop="image"
                             label="Image">
-                      <img :src="'static/images/' + scope.row.image"/>
+                        <template slot-scope="scope">
+                            <img :src="'static/images/' + scope.row.image"/>
+                        </template>
                     </el-table-column>
                     <el-table-column
                             label="Actions">
-                      <router-link :to="{ path: `product/update/${scope.row.id}`}" class="btn btn-primary">
-                          <i class="icon el-icon-edit"></i>
-                      </router-link>
-                      <el-button
-                              @click.native.prevent="deleteProduct(scope.$index, products)"
-                              type="text"
-                              size="small">
-                          <i class="icon el-icon-delete"></i>
-                      </el-button>
+                        <template slot-scope="scope">
+                          <router-link :to="{ path: `product/update/${scope.row.id}`}" class="btn btn-primary">
+                              <i class="icon el-icon-edit"></i>
+                          </router-link>
+                          <el-button
+                                  @click.native.prevent="deleteProduct(scope.$index, products)"
+                                  type="text"
+                                  size="small">
+                              <i class="icon el-icon-delete"></i>
+                          </el-button>
+                        </template>
                     </el-table-column>
                 </el-table>
             </el-col>
