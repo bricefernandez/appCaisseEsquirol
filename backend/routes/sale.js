@@ -8,7 +8,10 @@ router.get('/list', function (req, res) {
     include: [{
       model: models.SaleProduct,
       include: [models.Products]
-    }]
+    }],
+    order: [
+      ['date', 'DESC']
+    ]
   })
     .then(function (data) {
       res.send(data)
@@ -17,9 +20,10 @@ router.get('/list', function (req, res) {
 
 router.get('/shortcuts', function (req, res) {
   models.sequelize.query(
-    'SELECT ProductId, sum(quantity), Products.* ' +
-    'FROM SaleProducts, Products ' +
+    'SELECT ProductId, sum(quantity), Products.*, Categories.name as catName ' +
+    'FROM SaleProducts, Products, Categories ' +
     'WHERE SaleProducts.ProductId = Products.id ' +
+    'AND Products.CategoryId = Categories.id ' +
     'GROUP BY ProductId ' +
     'ORDER BY sum(quantity) desc ' +
     'LIMIT 10',

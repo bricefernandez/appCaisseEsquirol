@@ -2,9 +2,9 @@
     <div>
         <div>
             <el-row class="Shortcuts">
-                <el-col class="ShortcutsContainer" :span="24" v-for="shortcut in shortcuts" v-bind:data="shortcut" :key="shortcut.id">
+                <el-col class="ShortcutsContainer" :span="24" v-for="shortcut in shortcuts" v-bind:data="shortcut" :key="shortcut.id" :class="shortcut.catName">
                     <div v-on:click="addProduct(shortcut)">
-                        {{ shortcut.name }}
+                      {{ shortcut.name }}
                     </div>
                 </el-col>
             </el-row>
@@ -62,9 +62,26 @@
     }
 
     .ShortcutsContainer {
-        border: solid 1px;
-        border-radius: 10px;
-        padding: 5px;
-        margin-bottom: 10px;
+      border: solid 1px;
+      border-radius: 10px;
+      padding: 5px;
+      margin-bottom: 10px;
+      font-weight: bold;
     }
+
+    .FM {
+      background-color: #79000a;
+      color: white;
+    }
+
+    .FVL {
+      background-color: #fc7a19;
+      color: white;
+    }
+
+    .FVI {
+      background-color: #556B2F;
+      color: white;
+    }
+
 </style>
