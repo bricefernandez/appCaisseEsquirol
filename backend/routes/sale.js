@@ -7,13 +7,23 @@ router.get('/list', function (req, res) {
     attributes: ['id', 'totalPrice', 'date', 'payment'],
     include: [{
       model: models.SaleProduct,
-      include: [models.Products]
+      include: [{
+        model: models.Products,
+        include: [models.Capacity]
+      }]
     }],
+    where: {
+      date: {
+        lt: new Date(req.query.endDate),
+        gt: new Date(req.query.startDate)
+      }
+    },
     order: [
       ['date', 'DESC']
     ]
   })
     .then(function (data) {
+      console.log(data)
       res.send(data)
     })
 })

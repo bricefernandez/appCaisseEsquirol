@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Element from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/fr'
 import 'element-ui/lib/theme-default/index.css'
 import Router from 'vue-router'
 import Vuex from 'vuex'
@@ -37,7 +38,7 @@ import Stats from '@/components/stats/Stats'
 import ListSales from '@/components/stats/sales/list'
 
 Vue.use(Router)
-Vue.use(Element)
+Vue.use(Element, { locale })
 Vue.use(Vuex)
 
 export default new Router({
