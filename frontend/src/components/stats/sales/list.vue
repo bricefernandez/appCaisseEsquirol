@@ -2,7 +2,7 @@
     <div id="all-sales">
         <el-row>
             <el-col :span="21" :offset="3">
-              <h1>Période du: {{ this.formatDate(this.rangeValue[0]) }} au {{ this.formatDate(this.rangeValue[0]) }}</h1>
+              <h1>Période du: {{ this.formatDate(this.rangeValue[0]) }} au {{ this.formatDate(this.rangeValue[1]) }}</h1>
               <el-row class="RangePicker">
                 <el-col :span="4" :offset="6">
                   Selectionner une prériode :
@@ -25,22 +25,22 @@
                       Total litres
                     </div>
                     <div class="KpiContainer">
-                      <span class="KpiContent">{{ this.totalLiters }}</span>
+                      <span class="KpiContent">{{ this.totalLiters }} L</span>
                     </div>
                   </el-col>
                   <el-col :span="8">
-                    <div class="KpiContainer KpiContainerSmall KpiContainerRed">
-                      <span class="KpiContentSmall">{{ (this.totalFM / 100).toFixed(2) }}</span>
+                    <div class="KpiContainer KpiContainerRed">
+                      <span class="KpiContentSmall">{{ (this.totalFM / 100).toFixed(2) }} L</span>
                     </div>
                   </el-col>
                   <el-col :span="8">
-                    <div class="KpiContainer KpiContainerSmall KpiContainerOrange">
-                      <span class="KpiContentSmall">{{ (this.totalFVL / 100).toFixed(2) }}</span>
+                    <div class="KpiContainer KpiContainerOrange">
+                      <span class="KpiContentSmall">{{ (this.totalFVL / 100).toFixed(2) }} L</span>
                     </div>
                   </el-col>
                   <el-col :span="8">
-                    <div class="KpiContainer KpiContainerSmall KpiContainerGreen">
-                      <span class="KpiContentSmall">{{ (this.totalFVI / 100).toFixed(2) }}</span>
+                    <div class="KpiContainer KpiContainerGreen">
+                      <span class="KpiContentSmall">{{ (this.totalFVI / 100).toFixed(2) }} L</span>
                     </div>
                   </el-col>
                 </el-col>
@@ -49,7 +49,7 @@
                     Total euros
                   </div>
                   <div class="KpiContainer">
-                    <span class="KpiContent">{{ this.totalEuros }}</span>
+                    <span class="KpiContent">{{ this.totalEuros }} €</span>
                   </div>
                 </el-col>
                 <el-col :span="5">
@@ -65,7 +65,7 @@
                     Panier moyen
                   </div>
                   <div class="KpiContainer">
-                    <span class="KpiContent">{{ this.averageBasket }}</span>
+                    <span class="KpiContent">{{ this.averageBasket }} €</span>
                   </div>
                 </el-col>
               </el-row>
@@ -119,28 +119,37 @@
         totalFVL: 0,
         totalFVI: 0,
         pickerOptions2: {
-          shortcuts: [{
-            text: 'Semaine dernière',
+          shortcuts:
+          [{
+            text: 'Aujourd\'hui',
             onClick (picker) {
-              const end = new Date()
+              const end = new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
               const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+
               picker.$emit('pick', [start, end])
             }
-          }, {
-            text: 'Mois dernier',
+          },
+          {
+            text: 'Semaine',
             onClick (picker) {
               const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+              const d = new Date()
+
+              let day = d.getDay()
+              let diff = d.getDate() - day + (day === 0 ? -6 : 1)
+              let start = new Date(d.setDate(diff))
+              start.setHours(0, 0, 0, 0)
+
               picker.$emit('pick', [start, end])
             }
-          }, {
-            text: 'Derniers 3 mois',
+          },
+          {
+            text: 'Mois',
             onClick (picker) {
               const end = new Date()
-              const start = new Date()
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+              let date = new Date()
+              const start = new Date(date.getFullYear(), date.getMonth(), 1)
+
               picker.$emit('pick', [start, end])
             }
           }]
@@ -192,6 +201,13 @@
 
       addLeadingZero (number) {
         return (number < 10) ? ('0' + number) : number
+      },
+
+      getMonday (d) {
+        d = new Date(d)
+        let day = d.getDay()
+        let diff = d.getDate() - day + (day === 0 ? -6 : 1)
+        console.log(new Date(d.setDate(diff)))
       },
 
       calculateTotals () {
@@ -251,43 +267,51 @@
   }
 
   .KpiContainer {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     border: solid 3px;
     border-radius: 50%;
     text-align: center;
-    margin: 0 auto;
-  }
-
-  .KpiContainerSmall {
-    width: 50px;
-    height: 50px;
+    margin: 20px auto;
   }
 
   .KpiContainerRed {
-    width: 50px;
-    height: 50px;
+    width: 90px;
+    height: 90px;
     border-color: #79000a;
+    background-color: #79000a;
+    color: white;
+    margin-bottom: 30px;
   }
 
   .KpiContainerOrange {
-    width: 50px;
-    height: 50px;
+    width: 90px;
+    height: 90px;
     border-color: #fc7a19;
+    background-color: #fc7a19;
+    color: white;
+    margin-bottom: 30px;
   }
 
   .KpiContainerGreen {
-    width: 50px;
-    height: 50px;
+    width: 90px;
+    height: 90px;
     border-color: #556B2F;
+    background-color: #556B2F;
+    color: white;
+    margin-bottom: 30px;
   }
 
   .KpiContent {
-    line-height: 80px;
+    line-height: 120px;
+    font-weight: bold;
+    font-size: 20px;
   }
 
   .KpiContentSmall {
-    line-height: 50px;
+    line-height: 90px;
+    font-weight: bold;
+    font-size: 16px;
   }
 
   .KpiTitle {
