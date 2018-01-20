@@ -1,7 +1,7 @@
 <template>
     <div id="all-sales">
         <el-row>
-            <el-col :span="21" :offset="3">
+            <el-col :span="20" :offset="2">
               <h1>Période du: {{ this.formatDate(this.rangeValue[0]) }} au {{ this.formatDate(this.rangeValue[1]) }}</h1>
               <el-row class="RangePicker">
                 <el-col :span="4" :offset="6">
