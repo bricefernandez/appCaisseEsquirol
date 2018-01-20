@@ -2,6 +2,7 @@
     <div id="all-sales">
         <el-row>
             <el-col :span="20" :offset="2">
+              <!--<router-link to="/backoffice/product">Aller aux statistiques annuelles</router-link>-->
               <h1>Période du: {{ this.formatDate(this.rangeValue[0]) }} au {{ this.formatDate(this.rangeValue[1]) }}</h1>
               <el-row class="RangePicker">
                 <el-col :span="4" :offset="6">
@@ -16,6 +17,17 @@
                     :picker-options="pickerOptions2"
                     @change="rangePickerChange()">
                   </el-date-picker>
+                </el-col>
+              </el-row>
+              <el-row :gutter="15" class="DateShortcutContainer">
+                <el-col :span="4" :offset="6">
+                  <div class="DateShortcut dsToday" v-on:click="setRangeFromShortCut(0)">Aujourd'hui</div>
+                </el-col>
+                <el-col :span="4">
+                  <div class="DateShortcut dsWeek" v-on:click="setRangeFromShortCut(1)">Semaine en cours</div>
+                </el-col>
+                <el-col :span="4">
+                  <div class="DateShortcut dsMonth" v-on:click="setRangeFromShortCut(2)">Mois en cours</div>
                 </el-col>
               </el-row>
               <el-row>
@@ -118,42 +130,7 @@
         totalFM: 0,
         totalFVL: 0,
         totalFVI: 0,
-        pickerOptions2: {
-          shortcuts:
-          [{
-            text: 'Aujourd\'hui',
-            onClick (picker) {
-              const end = new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
-              const start = new Date()
-
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: 'Semaine',
-            onClick (picker) {
-              const end = new Date()
-              const d = new Date()
-
-              let day = d.getDay()
-              let diff = d.getDate() - day + (day === 0 ? -6 : 1)
-              let start = new Date(d.setDate(diff))
-              start.setHours(0, 0, 0, 0)
-
-              picker.$emit('pick', [start, end])
-            }
-          },
-          {
-            text: 'Mois',
-            onClick (picker) {
-              const end = new Date()
-              let date = new Date()
-              const start = new Date(date.getFullYear(), date.getMonth(), 1)
-
-              picker.$emit('pick', [start, end])
-            }
-          }]
-        },
+        pickerOptions2: {},
         rangeValue: [new Date(), new Date(new Date().getTime() + 24 * 60 * 60 * 1000)]
       }
     },
@@ -183,6 +160,13 @@
 
       rangePickerChange () {
         this.fetchSaleData()
+        this.colorShortCut()
+      },
+
+      colorShortCut () {
+        if (new Date(this.rangeValue[0]).getTime() === new Date(this.getTodayRange()[0].getTime())) {
+
+        }
       },
 
       formatDate (date, withHours) {
@@ -203,11 +187,49 @@
         return (number < 10) ? ('0' + number) : number
       },
 
-      getMonday (d) {
-        d = new Date(d)
+      setRangeFromShortCut (value) {
+        switch (value) {
+          case 0:
+            this.rangeValue = this.getTodayRange()
+            break
+          case 1:
+            this.rangeValue = this.getWeekRange()
+            break
+          case 2:
+            this.rangeValue = this.getMonthRange()
+            break
+        }
+      },
+
+      getTodayRange () {
+        let end = new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
+        let start = new Date()
+        start.setHours(0, 0, 0, 0)
+        end.setHours(0, 0, 0, 0)
+
+        return [start, end]
+      },
+
+      getWeekRange () {
+        let end = new Date()
+        let d = new Date()
         let day = d.getDay()
         let diff = d.getDate() - day + (day === 0 ? -6 : 1)
-        console.log(new Date(d.setDate(diff)))
+        let start = new Date(d.setDate(diff))
+        start.setHours(0, 0, 0, 0)
+        end.setHours(0, 0, 0, 0)
+
+        return [start, end]
+      },
+
+      getMonthRange () {
+        let end = new Date()
+        let date = new Date()
+        let start = new Date(date.getFullYear(), date.getMonth(), 1)
+        start.setHours(0, 0, 0, 0)
+        end.setHours(0, 0, 0, 0)
+
+        return [start, end]
       },
 
       calculateTotals () {
@@ -317,6 +339,20 @@
   .KpiTitle {
     font-weight: bold;
     font-size: 20px;
+  }
+
+  .DateShortcutContainer {
+    border-bottom: solid 1px lightgrey;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+
+  .DateShortcut {
+    border: solid 1px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
   }
 
 </style>
