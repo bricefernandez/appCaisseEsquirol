@@ -21,13 +21,13 @@
               </el-row>
               <el-row :gutter="15" class="DateShortcutContainer">
                 <el-col :span="4" :offset="6">
-                  <div class="DateShortcut dsToday" v-on:click="setRangeFromShortCut(0)">Aujourd'hui</div>
+                  <div class="DateShortcut" v-bind:class="{ activeSC: isToday }" v-on:click="setRangeFromShortCut(0)">Aujourd'hui</div>
                 </el-col>
                 <el-col :span="4">
-                  <div class="DateShortcut dsWeek" v-on:click="setRangeFromShortCut(1)">Semaine en cours</div>
+                  <div class="DateShortcut" v-bind:class="{ activeSC: isWeek }" v-on:click="setRangeFromShortCut(1)">Semaine en cours</div>
                 </el-col>
                 <el-col :span="4">
-                  <div class="DateShortcut dsMonth" v-on:click="setRangeFromShortCut(2)">Mois en cours</div>
+                  <div class="DateShortcut" v-bind:class="{ activeSC: isMonth }" v-on:click="setRangeFromShortCut(2)">Mois en cours</div>
                 </el-col>
               </el-row>
               <el-row>
@@ -131,7 +131,10 @@
         totalFVL: 0,
         totalFVI: 0,
         pickerOptions2: {},
-        rangeValue: [new Date(), new Date(new Date().getTime() + 24 * 60 * 60 * 1000)]
+        rangeValue: [new Date(), new Date(new Date().getTime() + 24 * 60 * 60 * 1000)],
+        isToday: true,
+        isWeek: false,
+        isMonth: false
       }
     },
 
@@ -164,8 +167,25 @@
       },
 
       colorShortCut () {
-        if (new Date(this.rangeValue[0]).getTime() === new Date(this.getTodayRange()[0].getTime())) {
+        if (new Date(this.rangeValue[0]).getTime() === new Date(this.getTodayRange()[0]).getTime() &&
+          new Date(this.rangeValue[0]).getTime() === new Date(this.getTodayRange()[0]).getTime()) {
+          this.isToday = true
+        } else {
+          this.isToday = false
+        }
 
+        if (new Date(this.rangeValue[0]).getTime() === new Date(this.getWeekRange()[0]).getTime() &&
+          new Date(this.rangeValue[0]).getTime() === new Date(this.getWeekRange()[0]).getTime()) {
+          this.isWeek = true
+        } else {
+          this.isWeek = false
+        }
+
+        if (new Date(this.rangeValue[0]).getTime() === new Date(this.getMonthRange()[0]).getTime() &&
+          new Date(this.rangeValue[0]).getTime() === new Date(this.getMonthRange()[0]).getTime()) {
+          this.isMonth = true
+        } else {
+          this.isMonth = false
         }
       },
 
@@ -353,6 +373,11 @@
     padding: 5px;
     margin-bottom: 10px;
     font-weight: bold;
+  }
+
+  .activeSC {
+    background-color: #20a0ff;
+    color: white;
   }
 
 </style>
