@@ -23,7 +23,6 @@ router.get('/list', function (req, res) {
     ]
   })
     .then(function (data) {
-      console.log(data)
       res.send(data)
     })
 })

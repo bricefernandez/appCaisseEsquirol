@@ -28,7 +28,7 @@
                                 </router-link>
                             </el-col>
                             <el-col :span="24">
-                                <router-link to="/">
+                                <router-link to="/stats">
                                     <icon class="IconNewUser" name="backward"></icon>
                                 </router-link>
                             </el-col>
