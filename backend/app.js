@@ -26,12 +26,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.all('/*', function(req, res, next) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Content-Type,Authorization");
-        res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-        next();
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Content-Type,Authorization");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+  next();
 
-    });
+});
 
 app.use('/', routes);
 app.use('/category', category);
@@ -47,6 +47,34 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: (app.get('env') === 'development') ? err : {}
   });
-});
+})
+
+
+var _ = require("lodash");
+var express = require("express");
+var bodyParser = require("body-parser");
+var jwt = require('jsonwebtoken');
+
+var passport = require("passport");
+var passportJWT = require("passport-jwt");
+
+var ExtractJwt = passportJWT.ExtractJwt;
+var JwtStrategy = passportJWT.Strategy;
+
+app.use(passport.initialize());
+
+// parse application/x-www-form-urlencoded
+// for easier testing with Postman or plain HTML forms
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+// parse application/json
+app.use(bodyParser.json())
+
+
+var helmet = require('helmet')
+app.use(helmet())
+app.disable('x-powered-by');
 
 module.exports = app;
