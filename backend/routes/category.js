@@ -14,8 +14,8 @@ router.get('/get', function (req, res) {
   'id' in req.query ? conditions.id = req.query.id :
   'name' in req.query ? conditions.name = req.query.name :
   'level' in req.query ? conditions.level = req.query.level :
-  'parent' in req.query ? conditions.parent = req.query.parent :
-  console.log(conditions)
+  'parent' in req.query ? conditions.parent = req.query.parent : console.log('ok')
+
   models.Category.findAll({
     include: [models.Products],
     where: conditions

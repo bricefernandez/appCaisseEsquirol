@@ -1,8 +1,5 @@
 <template>
     <div>
-        <!--<el-header>-->
-            <!--<div class="caisseTitle">Modes de paiement</div>-->
-        <!--</el-header>-->
         <div>
             <div class="PaymentsContainer">
                 <el-radio-group v-model="$store.state.payment" @change="activatedThis($event)">

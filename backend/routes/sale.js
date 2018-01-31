@@ -7,19 +7,52 @@ router.get('/list', function (req, res) {
     attributes: ['id', 'totalPrice', 'date', 'payment'],
     include: [{
       model: models.SaleProduct,
-      include: [models.Products]
-    }]
+      include: [{
+        model: models.Products,
+        include: [models.Capacity]
+      }]
+    }],
+    where: {
+      date: {
+        lt: new Date(req.query.endDate),
+        gt: new Date(req.query.startDate)
+      }
+    },
+    order: [
+      ['date', 'DESC']
+    ]
   })
     .then(function (data) {
       res.send(data)
     })
 })
 
+
+router.get('/stats', function (req, res) {
+  console.log(req.query.endDate)
+  console.log(req.query.startDate)
+  models.sequelize.query(
+    'SELECT SUM(Capacities.value * SaleProducts.quantity) as totalQuantity, SUM(Products.price) as totalEuros, COUNT(Products.id) as nbProducts, Categories.name ' +
+    'FROM Sales ' +
+    'LEFT OUTER JOIN SaleProducts ON Sales.id = SaleProducts.SaleId ' +
+    'LEFT OUTER JOIN Products ON SaleProducts.ProductId = Products.id ' +
+    'LEFT OUTER JOIN Categories ON Categories.id = Products.CategoryId ' +
+    'LEFT OUTER JOIN Capacities ON Products.CapacityId = Capacities.id ' +
+    'WHERE (Sales.date < "' + req.query.endDate + '" AND Sales.date > "' + req.query.startDate + '") ' +
+    'GROUP BY Categories.id ' +
+    'ORDER BY Sales.date DESC ',
+    { type: models.sequelize.QueryTypes.SELECT }
+  ).then(function (data) {
+    res.send(data)
+  })
+})
+
 router.get('/shortcuts', function (req, res) {
   models.sequelize.query(
-    'SELECT ProductId, sum(quantity), Products.* ' +
-    'FROM SaleProducts, Products ' +
+    'SELECT ProductId, sum(quantity), Products.*, Categories.name as catName ' +
+    'FROM SaleProducts, Products, Categories ' +
     'WHERE SaleProducts.ProductId = Products.id ' +
+    'AND Products.CategoryId = Categories.id ' +
     'GROUP BY ProductId ' +
     'ORDER BY sum(quantity) desc ' +
     'LIMIT 10',
